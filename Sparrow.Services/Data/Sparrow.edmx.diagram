@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b82c51974a534f8fa9ab94e82213ce7e" Name="Diagram1" ZoomLevel="64">
+        <EntityTypeShape EntityType="sparrow_dbModel.ARTIST_BLOG" Width="1.5" PointX="3" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="sparrow_dbModel.SPRW_ALBUM" Width="1.5" PointX="3" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="sparrow_dbModel.SPRW_ARTIST" Width="1.5" PointX="0.75" PointY="25" IsExpanded="true" />
+        <EntityTypeShape EntityType="sparrow_dbModel.SPRW_ARTIST_EVENT" Width="1.5" PointX="3" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="sparrow_dbModel.SPRW_ARTIST_IMG" Width="1.5" PointX="3" PointY="27" IsExpanded="true" />
+        <EntityTypeShape EntityType="sparrow_dbModel.SPRW_ARTIST_MEMBER" Width="1.5" PointX="5.25" PointY="32.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="sparrow_dbModel.SPRW_GENRE" Width="1.5" PointX="3" PointY="34.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="sparrow_dbModel.SPRW_POP_ARTIST" Width="1.5" PointX="5.25" PointY="28.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="sparrow_dbModel.SPRW_POP_INDEX" Width="1.5" PointX="7.5" PointY="20.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="sparrow_dbModel.SPRW_ROLE" Width="1.5" PointX="3" PointY="43.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="sparrow_dbModel.SPRW_TRACK" Width="1.5" PointX="5.25" PointY="18.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="sparrow_dbModel.SPRW_USER" Width="1.5" PointX="3" PointY="37.125" IsExpanded="true" />
+        <AssociationConnector Association="sparrow_dbModel.FK__ARTIST_BL__ARTIS__6383C8BA" ManuallyRouted="false" />
+        <AssociationConnector Association="sparrow_dbModel.FK__SPRW_ALBU__ARTIS__3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="sparrow_dbModel.FK__SPRW_TRAC__ALBUM__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="sparrow_dbModel.FK__SPRW_ARTI__ARTIS__3F115E1A" ManuallyRouted="false" />
+        <AssociationConnector Association="sparrow_dbModel.FK__SPRW_ARTI__ARTIS__5DCAEF64" ManuallyRouted="false" />
+        <AssociationConnector Association="sparrow_dbModel.FK__SPRW_ARTI__ARTIS__60A75C0F" ManuallyRouted="false" />
+        <AssociationConnector Association="sparrow_dbModel.FK__SPRW_TRAC__ARTIS__4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="sparrow_dbModel.FK__SPRW_ARTI__ROLE___5CD6CB2B" ManuallyRouted="false" />
+        <AssociationConnector Association="sparrow_dbModel.FK__SPRW_ARTI__USER___5BE2A6F2" ManuallyRouted="false" />
+        <AssociationConnector Association="sparrow_dbModel.FK__SPRW_POP___TRACK__3C34F16F" ManuallyRouted="false" />
+        <AssociationConnector Association="sparrow_dbModel.SPRW_ARTIST_GENRE" ManuallyRouted="false" />
+        <AssociationConnector Association="sparrow_dbModel.SPRW_ARTIST_POP_ARTIST" ManuallyRouted="false" />
+        <AssociationConnector Association="sparrow_dbModel.SPRW_POP_ARTIST_GENRE" ManuallyRouted="false" />
+        <AssociationConnector Association="sparrow_dbModel.SPRW_USER_ARTIST_FOLLOW" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="sparrow_dbModel.SPRW_TRACK_POPULAR_DISLIKE" Width="1.5" PointX="7.5" PointY="28.125" />
+        <EntityTypeShape EntityType="sparrow_dbModel.SPRW_TRACK_POPULAR_LIKE" Width="1.5" PointX="7.5" PointY="35.625" />
+        <EntityTypeShape EntityType="sparrow_dbModel.SPRW_TRACK_POPULAR_PLAY_THROUGH" Width="1.5" PointX="7.5" PointY="16.5" />
+        <EntityTypeShape EntityType="sparrow_dbModel.SPRW_TRACK_POPULAR_PLAYS" Width="1.5" PointX="7.5" PointY="23" />
+        <EntityTypeShape EntityType="sparrow_dbModel.SPRW_TRACK_POPULAR_SELECT" Width="1.5" PointX="7.5" PointY="13.875" />
+        <EntityTypeShape EntityType="sparrow_dbModel.SPRW_TRACK_POPULAR_SKIPS" Width="1.5" PointX="7.5" PointY="25.5" />
+        <AssociationConnector Association="sparrow_dbModel.FK__SPRW_TRAC__TRACK__4A8310C6" />
+        <AssociationConnector Association="sparrow_dbModel.FK__SPRW_TRAC__TRACK__4D5F7D71" />
+        <AssociationConnector Association="sparrow_dbModel.FK__SPRW_TRAC__TRACK__503BEA1C" />
+        <AssociationConnector Association="sparrow_dbModel.FK__SPRW_TRAC__TRACK__531856C7" />
+        <AssociationConnector Association="sparrow_dbModel.FK__SPRW_TRAC__TRACK__55F4C372" />
+        <AssociationConnector Association="sparrow_dbModel.FK__SPRW_TRAC__TRACK__58D1301D" />
+        <EntityTypeShape EntityType="sparrow_dbModel.SPRW_ALBUM_IMG" Width="1.5" PointX="5.25" PointY="15" />
+        <AssociationConnector Association="sparrow_dbModel.FK__SPRW_ALBU__ALBUM__634EBE90" />
+        <EntityTypeShape EntityType="sparrow_dbModel.SPRW_MARKET_LOCATIONS" Width="1.5" PointX="0.75" PointY="21" />
+        <EntityTypeShape EntityType="sparrow_dbModel.SPRW_MARKET_STATES" Width="1.5" PointX="0.75" PointY="18.5" />
+        <AssociationConnector Association="sparrow_dbModel.FK__SPRW_ARTI__MARKE__7C1A6C5A" />
+        <AssociationConnector Association="sparrow_dbModel.FK__SPRW_MARK__STATE__7EF6D905" />
+        <EntityTypeShape EntityType="sparrow_dbModel.SPRW_USER_FILTER" Width="1.5" PointX="5.25" PointY="37.75" />
+        <AssociationConnector Association="sparrow_dbModel.FK__SPRW_USER__USER___0880433F" />
+        <EntityTypeShape EntityType="sparrow_dbModel.SPRW_ARTIST_SETTINGS" Width="1.5" PointX="3" PointY="31.5" />
+        <AssociationConnector Association="sparrow_dbModel.FK__SPRW_ARTI__ARTIS__1E6F845E" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

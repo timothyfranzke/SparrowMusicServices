@@ -1,0 +1,698 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="sparrow_dbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ARTIST_BLOG">
+    <Key>
+      <PropertyRef Name="BLOG_ID" />
+    </Key>
+    <Property Name="BLOG_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BLOG" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ARTIST_ID" Type="Int32" Nullable="false" />
+    <Property Name="ACT_IND" Type="Boolean" Nullable="false" />
+    <Property Name="LAST_MAINT_USER_ID" Type="Int32" Nullable="false" />
+    <Property Name="LAST_MAINT_TIME" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="SPRW_ARTIST" Relationship="Self.FK__ARTIST_BL__ARTIS__6383C8BA" FromRole="ARTIST_BLOG" ToRole="SPRW_ARTIST" />
+  </EntityType>
+  <EntityType Name="SPRW_ALBUM">
+    <Key>
+      <PropertyRef Name="ALBUM_ID" />
+    </Key>
+    <Property Name="ALBUM_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ARTIST_ID" Type="Int32" Nullable="false" />
+    <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DESCRP" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ACT_IND" Type="Boolean" Nullable="false" />
+    <Property Name="RELEASE_DATE" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LAST_MAINT_USER_ID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LAST_MAINT_TIME" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="SPRW_ARTIST" Relationship="Self.FK__SPRW_ALBU__ARTIS__3E52440B" FromRole="SPRW_ALBUM" ToRole="SPRW_ARTIST" />
+    <NavigationProperty Name="SPRW_TRACK" Relationship="Self.FK__SPRW_TRAC__ALBUM__412EB0B6" FromRole="SPRW_ALBUM" ToRole="SPRW_TRACK" />
+    <NavigationProperty Name="SPRW_ALBUM_IMG" Relationship="sparrow_dbModel.FK__SPRW_ALBU__ALBUM__634EBE90" FromRole="SPRW_ALBUM" ToRole="SPRW_ALBUM_IMG" />
+  </EntityType>
+  <EntityType Name="SPRW_ARTIST">
+    <Key>
+      <PropertyRef Name="ARTIST_ID" />
+    </Key>
+    <Property Name="ARTIST_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DESCRP" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ACT_IND" Type="Boolean" Nullable="false" />
+    <Property Name="LAST_MAINT_USER_ID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LAST_MAINT_TIME" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="ARTIST_BLOG" Relationship="Self.FK__ARTIST_BL__ARTIS__6383C8BA" FromRole="SPRW_ARTIST" ToRole="ARTIST_BLOG" />
+    <NavigationProperty Name="SPRW_ALBUM" Relationship="Self.FK__SPRW_ALBU__ARTIS__3E52440B" FromRole="SPRW_ARTIST" ToRole="SPRW_ALBUM" />
+    <NavigationProperty Name="SPRW_ARTIST_IMG" Relationship="Self.FK__SPRW_ARTI__ARTIS__3F115E1A" FromRole="SPRW_ARTIST" ToRole="SPRW_ARTIST_IMG" />
+    <NavigationProperty Name="SPRW_ARTIST_MEMBER" Relationship="Self.FK__SPRW_ARTI__ARTIS__5DCAEF64" FromRole="SPRW_ARTIST" ToRole="SPRW_ARTIST_MEMBER" />
+    <NavigationProperty Name="SPRW_ARTIST_EVENT" Relationship="Self.FK__SPRW_ARTI__ARTIS__60A75C0F" FromRole="SPRW_ARTIST" ToRole="SPRW_ARTIST_EVENT" />
+    <NavigationProperty Name="SPRW_TRACK" Relationship="Self.FK__SPRW_TRAC__ARTIS__4222D4EF" FromRole="SPRW_ARTIST" ToRole="SPRW_TRACK" />
+    <NavigationProperty Name="SPRW_GENRE" Relationship="Self.SPRW_ARTIST_GENRE" FromRole="SPRW_ARTIST" ToRole="SPRW_GENRE" />
+    <NavigationProperty Name="SPRW_POP_ARTIST" Relationship="Self.SPRW_ARTIST_POP_ARTIST" FromRole="SPRW_ARTIST" ToRole="SPRW_POP_ARTIST" />
+    <NavigationProperty Name="SPRW_USER" Relationship="Self.SPRW_USER_ARTIST_FOLLOW" FromRole="SPRW_ARTIST" ToRole="SPRW_USER" />
+    <Property Name="POP_INDEX" Type="Decimal" Nullable="false" Precision="10" Scale="5" />
+    <Property Name="MARKET_ID" Type="Int32" />
+    <NavigationProperty Name="SPRW_MARKET_LOCATIONS" Relationship="sparrow_dbModel.FK__SPRW_ARTI__MARKE__7C1A6C5A" FromRole="SPRW_ARTIST" ToRole="SPRW_MARKET_LOCATIONS" />
+    <NavigationProperty Name="SPRW_ARTIST_SETTINGS" Relationship="sparrow_dbModel.FK__SPRW_ARTI__ARTIS__1E6F845E" FromRole="SPRW_ARTIST" ToRole="SPRW_ARTIST_SETTINGS" />
+  </EntityType>
+  <EntityType Name="SPRW_ARTIST_EVENT">
+    <Key>
+      <PropertyRef Name="EVENT_ID" />
+    </Key>
+    <Property Name="EVENT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ARTIST_ID" Type="Int32" Nullable="false" />
+    <Property Name="NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DESCRP" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="EVENT_DATE" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ADDRESS" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CITY" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="STATE" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="URL" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ACT_IND" Type="Boolean" Nullable="false" />
+    <Property Name="LAST_MAINT_USER_ID" Type="Int32" Nullable="false" />
+    <Property Name="LAST_MAINT_TIME" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="SPRW_ARTIST" Relationship="Self.FK__SPRW_ARTI__ARTIS__60A75C0F" FromRole="SPRW_ARTIST_EVENT" ToRole="SPRW_ARTIST" />
+  </EntityType>
+  <EntityType Name="SPRW_ARTIST_IMG">
+    <Key>
+      <PropertyRef Name="IMG_ID" />
+    </Key>
+    <Property Name="ARTIST_ID" Type="Int32" Nullable="false" />
+    <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DESCRP" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="IMG_PATH" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IMG_PRIMARY" Type="Boolean" Nullable="false" />
+    <Property Name="ACT_IND" Type="Boolean" Nullable="false" />
+    <Property Name="LAST_MAINT_USER_ID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LAST_MAINT_TIME" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IMG_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="SPRW_ARTIST" Relationship="Self.FK__SPRW_ARTI__ARTIS__3F115E1A" FromRole="SPRW_ARTIST_IMG" ToRole="SPRW_ARTIST" />
+  </EntityType>
+  <EntityType Name="SPRW_ARTIST_MEMBER">
+    <Key>
+      <PropertyRef Name="USER_ID" />
+      <PropertyRef Name="ARTIST_ID" />
+      <PropertyRef Name="ROLE_ID" />
+    </Key>
+    <Property Name="USER_ID" Type="Int32" Nullable="false" />
+    <Property Name="ARTIST_ID" Type="Int32" Nullable="false" />
+    <Property Name="ROLE_ID" Type="Int32" Nullable="false" />
+    <Property Name="ACT_IND" Type="Boolean" Nullable="false" />
+    <Property Name="LAST_MAINT_USER_ID" Type="Int32" Nullable="false" />
+    <Property Name="LAST_MAINT_TIME" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="SPRW_ARTIST" Relationship="Self.FK__SPRW_ARTI__ARTIS__5DCAEF64" FromRole="SPRW_ARTIST_MEMBER" ToRole="SPRW_ARTIST" />
+    <NavigationProperty Name="SPRW_ROLE" Relationship="Self.FK__SPRW_ARTI__ROLE___5CD6CB2B" FromRole="SPRW_ARTIST_MEMBER" ToRole="SPRW_ROLE" />
+    <NavigationProperty Name="SPRW_USER" Relationship="Self.FK__SPRW_ARTI__USER___5BE2A6F2" FromRole="SPRW_ARTIST_MEMBER" ToRole="SPRW_USER" />
+  </EntityType>
+  <EntityType Name="SPRW_GENRE">
+    <Key>
+      <PropertyRef Name="GENRE_ID" />
+    </Key>
+    <Property Name="GENRE_ID" Type="Int32" Nullable="false" />
+    <Property Name="GENRE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LAST_MAINT_USER_ID" Type="Int32" Nullable="false" />
+    <Property Name="LAST_MAINT_TIME" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="SPRW_ARTIST" Relationship="Self.SPRW_ARTIST_GENRE" FromRole="SPRW_GENRE" ToRole="SPRW_ARTIST" />
+    <NavigationProperty Name="SPRW_POP_ARTIST" Relationship="Self.SPRW_POP_ARTIST_GENRE" FromRole="SPRW_GENRE" ToRole="SPRW_POP_ARTIST" />
+  </EntityType>
+  <EntityType Name="SPRW_POP_ARTIST">
+    <Key>
+      <PropertyRef Name="POP_ARTIST_ID" />
+    </Key>
+    <Property Name="POP_ARTIST_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="POP_ARTIST_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="SPRW_ARTIST" Relationship="Self.SPRW_ARTIST_POP_ARTIST" FromRole="SPRW_POP_ARTIST" ToRole="SPRW_ARTIST" />
+    <NavigationProperty Name="SPRW_GENRE" Relationship="Self.SPRW_POP_ARTIST_GENRE" FromRole="SPRW_POP_ARTIST" ToRole="SPRW_GENRE" />
+  </EntityType>
+  <EntityType Name="SPRW_POP_INDEX">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="TRACK_ID" Type="Int32" Nullable="false" />
+    <Property Name="POP_INDEX" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <NavigationProperty Name="SPRW_TRACK" Relationship="Self.FK__SPRW_POP___TRACK__3C34F16F" FromRole="SPRW_POP_INDEX" ToRole="SPRW_TRACK" />
+  </EntityType>
+  <EntityType Name="SPRW_ROLE">
+    <Key>
+      <PropertyRef Name="ROLE_ID" />
+    </Key>
+    <Property Name="ROLE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ROLE_NAME" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LAST_MAINT_USER_ID" Type="Int32" Nullable="false" />
+    <Property Name="LAST_MAINT_TIME" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="SPRW_ARTIST_MEMBER" Relationship="Self.FK__SPRW_ARTI__ROLE___5CD6CB2B" FromRole="SPRW_ROLE" ToRole="SPRW_ARTIST_MEMBER" />
+  </EntityType>
+  <EntityType Name="SPRW_TRACK">
+    <Key>
+      <PropertyRef Name="TRACK_ID" />
+    </Key>
+    <Property Name="TRACK_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ALBUM_ID" Type="Int32" />
+    <Property Name="ARTIST_ID" Type="Int32" Nullable="false" />
+    <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DESCRP" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ACT_IND" Type="Boolean" Nullable="false" />
+    <Property Name="RELEASE_DATE" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LAST_MAINT_USER_ID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LAST_MAINT_TIME" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="POP_INDEX" Type="Decimal" Precision="10" Scale="5" />
+    <NavigationProperty Name="SPRW_ALBUM" Relationship="Self.FK__SPRW_TRAC__ALBUM__412EB0B6" FromRole="SPRW_TRACK" ToRole="SPRW_ALBUM" />
+    <NavigationProperty Name="SPRW_ARTIST" Relationship="Self.FK__SPRW_TRAC__ARTIS__4222D4EF" FromRole="SPRW_TRACK" ToRole="SPRW_ARTIST" />
+    <NavigationProperty Name="SPRW_POP_INDEX" Relationship="Self.FK__SPRW_POP___TRACK__3C34F16F" FromRole="SPRW_TRACK" ToRole="SPRW_POP_INDEX" />
+    <Property Name="MINUTES" Type="Int32" />
+    <Property Name="SECONDS" Type="Int32" />
+    <NavigationProperty Name="SPRW_TRACK_POPULAR_DISLIKE" Relationship="sparrow_dbModel.FK__SPRW_TRAC__TRACK__4A8310C6" FromRole="SPRW_TRACK" ToRole="SPRW_TRACK_POPULAR_DISLIKE" />
+    <NavigationProperty Name="SPRW_TRACK_POPULAR_LIKE" Relationship="sparrow_dbModel.FK__SPRW_TRAC__TRACK__4D5F7D71" FromRole="SPRW_TRACK" ToRole="SPRW_TRACK_POPULAR_LIKE" />
+    <NavigationProperty Name="SPRW_TRACK_POPULAR_PLAY_THROUGH" Relationship="sparrow_dbModel.FK__SPRW_TRAC__TRACK__503BEA1C" FromRole="SPRW_TRACK" ToRole="SPRW_TRACK_POPULAR_PLAY_THROUGH" />
+    <NavigationProperty Name="SPRW_TRACK_POPULAR_PLAYS" Relationship="sparrow_dbModel.FK__SPRW_TRAC__TRACK__531856C7" FromRole="SPRW_TRACK" ToRole="SPRW_TRACK_POPULAR_PLAYS" />
+    <NavigationProperty Name="SPRW_TRACK_POPULAR_SELECT" Relationship="sparrow_dbModel.FK__SPRW_TRAC__TRACK__55F4C372" FromRole="SPRW_TRACK" ToRole="SPRW_TRACK_POPULAR_SELECT" />
+    <NavigationProperty Name="SPRW_TRACK_POPULAR_SKIPS" Relationship="sparrow_dbModel.FK__SPRW_TRAC__TRACK__58D1301D" FromRole="SPRW_TRACK" ToRole="SPRW_TRACK_POPULAR_SKIPS" />
+  </EntityType>
+  <EntityType Name="SPRW_USER">
+    <Key>
+      <PropertyRef Name="USER_ID" />
+    </Key>
+    <Property Name="USER_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PASSWORD" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FIRST_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LAST_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EMAIL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ACT_IND" Type="Boolean" Nullable="false" />
+    <Property Name="LAST_MAINT_USER_ID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LAST_MAINT_TIME" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="SALT" Type="Int32" />
+    <Property Name="PASSWORD_RESET" Type="Boolean" />
+    <NavigationProperty Name="SPRW_ARTIST_MEMBER" Relationship="Self.FK__SPRW_ARTI__USER___5BE2A6F2" FromRole="SPRW_USER" ToRole="SPRW_ARTIST_MEMBER" />
+    <NavigationProperty Name="SPRW_ARTIST" Relationship="Self.SPRW_USER_ARTIST_FOLLOW" FromRole="SPRW_USER" ToRole="SPRW_ARTIST" />
+    <NavigationProperty Name="SPRW_USER_FILTER" Relationship="sparrow_dbModel.FK__SPRW_USER__USER___0880433F" FromRole="SPRW_USER" ToRole="SPRW_USER_FILTER" />
+  </EntityType>
+  <Association Name="FK__ARTIST_BL__ARTIS__6383C8BA">
+    <End Role="SPRW_ARTIST" Type="Self.SPRW_ARTIST" Multiplicity="1" />
+    <End Role="ARTIST_BLOG" Type="Self.ARTIST_BLOG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SPRW_ARTIST">
+        <PropertyRef Name="ARTIST_ID" />
+      </Principal>
+      <Dependent Role="ARTIST_BLOG">
+        <PropertyRef Name="ARTIST_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SPRW_ALBU__ARTIS__3E52440B">
+    <End Role="SPRW_ARTIST" Type="Self.SPRW_ARTIST" Multiplicity="1" />
+    <End Role="SPRW_ALBUM" Type="Self.SPRW_ALBUM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SPRW_ARTIST">
+        <PropertyRef Name="ARTIST_ID" />
+      </Principal>
+      <Dependent Role="SPRW_ALBUM">
+        <PropertyRef Name="ARTIST_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SPRW_TRAC__ALBUM__412EB0B6">
+    <End Role="SPRW_ALBUM" Type="Self.SPRW_ALBUM" Multiplicity="0..1" />
+    <End Role="SPRW_TRACK" Type="Self.SPRW_TRACK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SPRW_ALBUM">
+        <PropertyRef Name="ALBUM_ID" />
+      </Principal>
+      <Dependent Role="SPRW_TRACK">
+        <PropertyRef Name="ALBUM_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SPRW_ARTI__ARTIS__3F115E1A">
+    <End Role="SPRW_ARTIST" Type="Self.SPRW_ARTIST" Multiplicity="1" />
+    <End Role="SPRW_ARTIST_IMG" Type="Self.SPRW_ARTIST_IMG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SPRW_ARTIST">
+        <PropertyRef Name="ARTIST_ID" />
+      </Principal>
+      <Dependent Role="SPRW_ARTIST_IMG">
+        <PropertyRef Name="ARTIST_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SPRW_ARTI__ARTIS__5DCAEF64">
+    <End Role="SPRW_ARTIST" Type="Self.SPRW_ARTIST" Multiplicity="1" />
+    <End Role="SPRW_ARTIST_MEMBER" Type="Self.SPRW_ARTIST_MEMBER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SPRW_ARTIST">
+        <PropertyRef Name="ARTIST_ID" />
+      </Principal>
+      <Dependent Role="SPRW_ARTIST_MEMBER">
+        <PropertyRef Name="ARTIST_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SPRW_ARTI__ARTIS__60A75C0F">
+    <End Role="SPRW_ARTIST" Type="Self.SPRW_ARTIST" Multiplicity="1" />
+    <End Role="SPRW_ARTIST_EVENT" Type="Self.SPRW_ARTIST_EVENT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SPRW_ARTIST">
+        <PropertyRef Name="ARTIST_ID" />
+      </Principal>
+      <Dependent Role="SPRW_ARTIST_EVENT">
+        <PropertyRef Name="ARTIST_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SPRW_TRAC__ARTIS__4222D4EF">
+    <End Role="SPRW_ARTIST" Type="Self.SPRW_ARTIST" Multiplicity="1" />
+    <End Role="SPRW_TRACK" Type="Self.SPRW_TRACK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SPRW_ARTIST">
+        <PropertyRef Name="ARTIST_ID" />
+      </Principal>
+      <Dependent Role="SPRW_TRACK">
+        <PropertyRef Name="ARTIST_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SPRW_ARTI__ROLE___5CD6CB2B">
+    <End Role="SPRW_ROLE" Type="Self.SPRW_ROLE" Multiplicity="1" />
+    <End Role="SPRW_ARTIST_MEMBER" Type="Self.SPRW_ARTIST_MEMBER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SPRW_ROLE">
+        <PropertyRef Name="ROLE_ID" />
+      </Principal>
+      <Dependent Role="SPRW_ARTIST_MEMBER">
+        <PropertyRef Name="ROLE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SPRW_ARTI__USER___5BE2A6F2">
+    <End Role="SPRW_USER" Type="Self.SPRW_USER" Multiplicity="1" />
+    <End Role="SPRW_ARTIST_MEMBER" Type="Self.SPRW_ARTIST_MEMBER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SPRW_USER">
+        <PropertyRef Name="USER_ID" />
+      </Principal>
+      <Dependent Role="SPRW_ARTIST_MEMBER">
+        <PropertyRef Name="USER_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SPRW_POP___TRACK__3C34F16F">
+    <End Role="SPRW_TRACK" Type="Self.SPRW_TRACK" Multiplicity="1" />
+    <End Role="SPRW_POP_INDEX" Type="Self.SPRW_POP_INDEX" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SPRW_TRACK">
+        <PropertyRef Name="TRACK_ID" />
+      </Principal>
+      <Dependent Role="SPRW_POP_INDEX">
+        <PropertyRef Name="TRACK_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SPRW_ARTIST_GENRE">
+    <End Role="SPRW_ARTIST" Type="Self.SPRW_ARTIST" Multiplicity="*" />
+    <End Role="SPRW_GENRE" Type="Self.SPRW_GENRE" Multiplicity="*" />
+  </Association>
+  <Association Name="SPRW_ARTIST_POP_ARTIST">
+    <End Role="SPRW_ARTIST" Type="Self.SPRW_ARTIST" Multiplicity="*" />
+    <End Role="SPRW_POP_ARTIST" Type="Self.SPRW_POP_ARTIST" Multiplicity="*" />
+  </Association>
+  <Association Name="SPRW_POP_ARTIST_GENRE">
+    <End Role="SPRW_GENRE" Type="Self.SPRW_GENRE" Multiplicity="*" />
+    <End Role="SPRW_POP_ARTIST" Type="Self.SPRW_POP_ARTIST" Multiplicity="*" />
+  </Association>
+  <Association Name="SPRW_USER_ARTIST_FOLLOW">
+    <End Role="SPRW_ARTIST" Type="Self.SPRW_ARTIST" Multiplicity="*" />
+    <End Role="SPRW_USER" Type="Self.SPRW_USER" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="sparrow_dbEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ARTIST_BLOG" EntityType="Self.ARTIST_BLOG" />
+    <EntitySet Name="SPRW_ALBUM" EntityType="Self.SPRW_ALBUM" />
+    <EntitySet Name="SPRW_ARTIST" EntityType="Self.SPRW_ARTIST" />
+    <EntitySet Name="SPRW_ARTIST_EVENT" EntityType="Self.SPRW_ARTIST_EVENT" />
+    <EntitySet Name="SPRW_ARTIST_IMG" EntityType="Self.SPRW_ARTIST_IMG" />
+    <EntitySet Name="SPRW_ARTIST_MEMBER" EntityType="Self.SPRW_ARTIST_MEMBER" />
+    <EntitySet Name="SPRW_GENRE" EntityType="Self.SPRW_GENRE" />
+    <EntitySet Name="SPRW_POP_ARTIST" EntityType="Self.SPRW_POP_ARTIST" />
+    <EntitySet Name="SPRW_POP_INDEX" EntityType="Self.SPRW_POP_INDEX" />
+    <EntitySet Name="SPRW_ROLE" EntityType="Self.SPRW_ROLE" />
+    <EntitySet Name="SPRW_TRACK" EntityType="Self.SPRW_TRACK" />
+    <EntitySet Name="SPRW_USER" EntityType="Self.SPRW_USER" />
+    <AssociationSet Name="FK__ARTIST_BL__ARTIS__6383C8BA" Association="Self.FK__ARTIST_BL__ARTIS__6383C8BA">
+      <End Role="SPRW_ARTIST" EntitySet="SPRW_ARTIST" />
+      <End Role="ARTIST_BLOG" EntitySet="ARTIST_BLOG" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SPRW_ALBU__ARTIS__3E52440B" Association="Self.FK__SPRW_ALBU__ARTIS__3E52440B">
+      <End Role="SPRW_ARTIST" EntitySet="SPRW_ARTIST" />
+      <End Role="SPRW_ALBUM" EntitySet="SPRW_ALBUM" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SPRW_TRAC__ALBUM__412EB0B6" Association="Self.FK__SPRW_TRAC__ALBUM__412EB0B6">
+      <End Role="SPRW_ALBUM" EntitySet="SPRW_ALBUM" />
+      <End Role="SPRW_TRACK" EntitySet="SPRW_TRACK" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SPRW_ARTI__ARTIS__3F115E1A" Association="Self.FK__SPRW_ARTI__ARTIS__3F115E1A">
+      <End Role="SPRW_ARTIST" EntitySet="SPRW_ARTIST" />
+      <End Role="SPRW_ARTIST_IMG" EntitySet="SPRW_ARTIST_IMG" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SPRW_ARTI__ARTIS__5DCAEF64" Association="Self.FK__SPRW_ARTI__ARTIS__5DCAEF64">
+      <End Role="SPRW_ARTIST" EntitySet="SPRW_ARTIST" />
+      <End Role="SPRW_ARTIST_MEMBER" EntitySet="SPRW_ARTIST_MEMBER" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SPRW_ARTI__ARTIS__60A75C0F" Association="Self.FK__SPRW_ARTI__ARTIS__60A75C0F">
+      <End Role="SPRW_ARTIST" EntitySet="SPRW_ARTIST" />
+      <End Role="SPRW_ARTIST_EVENT" EntitySet="SPRW_ARTIST_EVENT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SPRW_TRAC__ARTIS__4222D4EF" Association="Self.FK__SPRW_TRAC__ARTIS__4222D4EF">
+      <End Role="SPRW_ARTIST" EntitySet="SPRW_ARTIST" />
+      <End Role="SPRW_TRACK" EntitySet="SPRW_TRACK" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SPRW_ARTI__ROLE___5CD6CB2B" Association="Self.FK__SPRW_ARTI__ROLE___5CD6CB2B">
+      <End Role="SPRW_ROLE" EntitySet="SPRW_ROLE" />
+      <End Role="SPRW_ARTIST_MEMBER" EntitySet="SPRW_ARTIST_MEMBER" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SPRW_ARTI__USER___5BE2A6F2" Association="Self.FK__SPRW_ARTI__USER___5BE2A6F2">
+      <End Role="SPRW_USER" EntitySet="SPRW_USER" />
+      <End Role="SPRW_ARTIST_MEMBER" EntitySet="SPRW_ARTIST_MEMBER" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SPRW_POP___TRACK__3C34F16F" Association="Self.FK__SPRW_POP___TRACK__3C34F16F">
+      <End Role="SPRW_TRACK" EntitySet="SPRW_TRACK" />
+      <End Role="SPRW_POP_INDEX" EntitySet="SPRW_POP_INDEX" />
+    </AssociationSet>
+    <AssociationSet Name="SPRW_ARTIST_GENRE" Association="Self.SPRW_ARTIST_GENRE">
+      <End Role="SPRW_ARTIST" EntitySet="SPRW_ARTIST" />
+      <End Role="SPRW_GENRE" EntitySet="SPRW_GENRE" />
+    </AssociationSet>
+    <AssociationSet Name="SPRW_ARTIST_POP_ARTIST" Association="Self.SPRW_ARTIST_POP_ARTIST">
+      <End Role="SPRW_ARTIST" EntitySet="SPRW_ARTIST" />
+      <End Role="SPRW_POP_ARTIST" EntitySet="SPRW_POP_ARTIST" />
+    </AssociationSet>
+    <AssociationSet Name="SPRW_POP_ARTIST_GENRE" Association="Self.SPRW_POP_ARTIST_GENRE">
+      <End Role="SPRW_GENRE" EntitySet="SPRW_GENRE" />
+      <End Role="SPRW_POP_ARTIST" EntitySet="SPRW_POP_ARTIST" />
+    </AssociationSet>
+    <AssociationSet Name="SPRW_USER_ARTIST_FOLLOW" Association="Self.SPRW_USER_ARTIST_FOLLOW">
+      <End Role="SPRW_ARTIST" EntitySet="SPRW_ARTIST" />
+      <End Role="SPRW_USER" EntitySet="SPRW_USER" />
+    </AssociationSet>
+    <EntitySet Name="SPRW_TRACK_POPULAR_DISLIKE" EntityType="sparrow_dbModel.SPRW_TRACK_POPULAR_DISLIKE" />
+    <EntitySet Name="SPRW_TRACK_POPULAR_LIKE" EntityType="sparrow_dbModel.SPRW_TRACK_POPULAR_LIKE" />
+    <EntitySet Name="SPRW_TRACK_POPULAR_PLAY_THROUGH" EntityType="sparrow_dbModel.SPRW_TRACK_POPULAR_PLAY_THROUGH" />
+    <EntitySet Name="SPRW_TRACK_POPULAR_PLAYS" EntityType="sparrow_dbModel.SPRW_TRACK_POPULAR_PLAYS" />
+    <EntitySet Name="SPRW_TRACK_POPULAR_SELECT" EntityType="sparrow_dbModel.SPRW_TRACK_POPULAR_SELECT" />
+    <EntitySet Name="SPRW_TRACK_POPULAR_SKIPS" EntityType="sparrow_dbModel.SPRW_TRACK_POPULAR_SKIPS" />
+    <AssociationSet Name="FK__SPRW_TRAC__TRACK__4A8310C6" Association="sparrow_dbModel.FK__SPRW_TRAC__TRACK__4A8310C6">
+      <End Role="SPRW_TRACK" EntitySet="SPRW_TRACK" />
+      <End Role="SPRW_TRACK_POPULAR_DISLIKE" EntitySet="SPRW_TRACK_POPULAR_DISLIKE" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SPRW_TRAC__TRACK__4D5F7D71" Association="sparrow_dbModel.FK__SPRW_TRAC__TRACK__4D5F7D71">
+      <End Role="SPRW_TRACK" EntitySet="SPRW_TRACK" />
+      <End Role="SPRW_TRACK_POPULAR_LIKE" EntitySet="SPRW_TRACK_POPULAR_LIKE" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SPRW_TRAC__TRACK__503BEA1C" Association="sparrow_dbModel.FK__SPRW_TRAC__TRACK__503BEA1C">
+      <End Role="SPRW_TRACK" EntitySet="SPRW_TRACK" />
+      <End Role="SPRW_TRACK_POPULAR_PLAY_THROUGH" EntitySet="SPRW_TRACK_POPULAR_PLAY_THROUGH" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SPRW_TRAC__TRACK__531856C7" Association="sparrow_dbModel.FK__SPRW_TRAC__TRACK__531856C7">
+      <End Role="SPRW_TRACK" EntitySet="SPRW_TRACK" />
+      <End Role="SPRW_TRACK_POPULAR_PLAYS" EntitySet="SPRW_TRACK_POPULAR_PLAYS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SPRW_TRAC__TRACK__55F4C372" Association="sparrow_dbModel.FK__SPRW_TRAC__TRACK__55F4C372">
+      <End Role="SPRW_TRACK" EntitySet="SPRW_TRACK" />
+      <End Role="SPRW_TRACK_POPULAR_SELECT" EntitySet="SPRW_TRACK_POPULAR_SELECT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SPRW_TRAC__TRACK__58D1301D" Association="sparrow_dbModel.FK__SPRW_TRAC__TRACK__58D1301D">
+      <End Role="SPRW_TRACK" EntitySet="SPRW_TRACK" />
+      <End Role="SPRW_TRACK_POPULAR_SKIPS" EntitySet="SPRW_TRACK_POPULAR_SKIPS" />
+    </AssociationSet>
+    <EntitySet Name="SPRW_ALBUM_IMG" EntityType="sparrow_dbModel.SPRW_ALBUM_IMG" />
+    <AssociationSet Name="FK__SPRW_ALBU__ALBUM__634EBE90" Association="sparrow_dbModel.FK__SPRW_ALBU__ALBUM__634EBE90">
+      <End Role="SPRW_ALBUM" EntitySet="SPRW_ALBUM" />
+      <End Role="SPRW_ALBUM_IMG" EntitySet="SPRW_ALBUM_IMG" />
+    </AssociationSet>
+    <EntitySet Name="SPRW_MARKET_LOCATIONS" EntityType="sparrow_dbModel.SPRW_MARKET_LOCATIONS" />
+    <EntitySet Name="SPRW_MARKET_STATES" EntityType="sparrow_dbModel.SPRW_MARKET_STATES" />
+    <AssociationSet Name="FK__SPRW_ARTI__MARKE__7C1A6C5A" Association="sparrow_dbModel.FK__SPRW_ARTI__MARKE__7C1A6C5A">
+      <End Role="SPRW_MARKET_LOCATIONS" EntitySet="SPRW_MARKET_LOCATIONS" />
+      <End Role="SPRW_ARTIST" EntitySet="SPRW_ARTIST" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SPRW_MARK__STATE__7EF6D905" Association="sparrow_dbModel.FK__SPRW_MARK__STATE__7EF6D905">
+      <End Role="SPRW_MARKET_STATES" EntitySet="SPRW_MARKET_STATES" />
+      <End Role="SPRW_MARKET_LOCATIONS" EntitySet="SPRW_MARKET_LOCATIONS" />
+    </AssociationSet>
+    <EntitySet Name="SPRW_USER_FILTER" EntityType="sparrow_dbModel.SPRW_USER_FILTER" />
+    <AssociationSet Name="FK__SPRW_USER__USER___0880433F" Association="sparrow_dbModel.FK__SPRW_USER__USER___0880433F">
+      <End Role="SPRW_USER" EntitySet="SPRW_USER" />
+      <End Role="SPRW_USER_FILTER" EntitySet="SPRW_USER_FILTER" />
+    </AssociationSet>
+    <EntitySet Name="SPRW_ARTIST_SETTINGS" EntityType="sparrow_dbModel.SPRW_ARTIST_SETTINGS" />
+    <AssociationSet Name="FK__SPRW_ARTI__ARTIS__1E6F845E" Association="sparrow_dbModel.FK__SPRW_ARTI__ARTIS__1E6F845E">
+      <End Role="SPRW_ARTIST" EntitySet="SPRW_ARTIST" />
+      <End Role="SPRW_ARTIST_SETTINGS" EntitySet="SPRW_ARTIST_SETTINGS" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="SPRW_TRACK_POPULAR_DISLIKE">
+    <Key>
+      <PropertyRef Name="TRACK_ID" />
+      <PropertyRef Name="USER_ID" />
+    </Key>
+    <Property Name="TRACK_ID" Type="Int32" Nullable="false" />
+    <Property Name="DISLIKE_DATE" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="USER_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="SPRW_TRACK" Relationship="sparrow_dbModel.FK__SPRW_TRAC__TRACK__4A8310C6" FromRole="SPRW_TRACK_POPULAR_DISLIKE" ToRole="SPRW_TRACK" />
+  </EntityType>
+  <EntityType Name="SPRW_TRACK_POPULAR_LIKE">
+    <Key>
+      <PropertyRef Name="TRACK_ID" />
+      <PropertyRef Name="USER_ID" />
+    </Key>
+    <Property Name="TRACK_ID" Type="Int32" Nullable="false" />
+    <Property Name="DISLIKE_DATE" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="USER_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="SPRW_TRACK" Relationship="sparrow_dbModel.FK__SPRW_TRAC__TRACK__4D5F7D71" FromRole="SPRW_TRACK_POPULAR_LIKE" ToRole="SPRW_TRACK" />
+  </EntityType>
+  <EntityType Name="SPRW_TRACK_POPULAR_PLAY_THROUGH">
+    <Key>
+      <PropertyRef Name="TRACK_ID" />
+      <PropertyRef Name="USER_ID" />
+    </Key>
+    <Property Name="TRACK_ID" Type="Int32" Nullable="false" />
+    <Property Name="DISLIKE_DATE" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="USER_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="SPRW_TRACK" Relationship="sparrow_dbModel.FK__SPRW_TRAC__TRACK__503BEA1C" FromRole="SPRW_TRACK_POPULAR_PLAY_THROUGH" ToRole="SPRW_TRACK" />
+  </EntityType>
+  <EntityType Name="SPRW_TRACK_POPULAR_PLAYS">
+    <Key>
+      <PropertyRef Name="TRACK_ID" />
+      <PropertyRef Name="USER_ID" />
+    </Key>
+    <Property Name="TRACK_ID" Type="Int32" Nullable="false" />
+    <Property Name="DISLIKE_DATE" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="USER_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="SPRW_TRACK" Relationship="sparrow_dbModel.FK__SPRW_TRAC__TRACK__531856C7" FromRole="SPRW_TRACK_POPULAR_PLAYS" ToRole="SPRW_TRACK" />
+  </EntityType>
+  <EntityType Name="SPRW_TRACK_POPULAR_SELECT">
+    <Key>
+      <PropertyRef Name="TRACK_ID" />
+      <PropertyRef Name="USER_ID" />
+    </Key>
+    <Property Name="TRACK_ID" Type="Int32" Nullable="false" />
+    <Property Name="DISLIKE_DATE" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="USER_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="SPRW_TRACK" Relationship="sparrow_dbModel.FK__SPRW_TRAC__TRACK__55F4C372" FromRole="SPRW_TRACK_POPULAR_SELECT" ToRole="SPRW_TRACK" />
+  </EntityType>
+  <EntityType Name="SPRW_TRACK_POPULAR_SKIPS">
+    <Key>
+      <PropertyRef Name="TRACK_ID" />
+      <PropertyRef Name="USER_ID" />
+    </Key>
+    <Property Name="TRACK_ID" Type="Int32" Nullable="false" />
+    <Property Name="DISLIKE_DATE" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="USER_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="SPRW_TRACK" Relationship="sparrow_dbModel.FK__SPRW_TRAC__TRACK__58D1301D" FromRole="SPRW_TRACK_POPULAR_SKIPS" ToRole="SPRW_TRACK" />
+  </EntityType>
+  <Association Name="FK__SPRW_TRAC__TRACK__4A8310C6">
+    <End Type="sparrow_dbModel.SPRW_TRACK" Role="SPRW_TRACK" Multiplicity="1" />
+    <End Type="sparrow_dbModel.SPRW_TRACK_POPULAR_DISLIKE" Role="SPRW_TRACK_POPULAR_DISLIKE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SPRW_TRACK">
+        <PropertyRef Name="TRACK_ID" />
+      </Principal>
+      <Dependent Role="SPRW_TRACK_POPULAR_DISLIKE">
+        <PropertyRef Name="TRACK_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SPRW_TRAC__TRACK__4D5F7D71">
+    <End Type="sparrow_dbModel.SPRW_TRACK" Role="SPRW_TRACK" Multiplicity="1" />
+    <End Type="sparrow_dbModel.SPRW_TRACK_POPULAR_LIKE" Role="SPRW_TRACK_POPULAR_LIKE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SPRW_TRACK">
+        <PropertyRef Name="TRACK_ID" />
+      </Principal>
+      <Dependent Role="SPRW_TRACK_POPULAR_LIKE">
+        <PropertyRef Name="TRACK_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SPRW_TRAC__TRACK__503BEA1C">
+    <End Type="sparrow_dbModel.SPRW_TRACK" Role="SPRW_TRACK" Multiplicity="1" />
+    <End Type="sparrow_dbModel.SPRW_TRACK_POPULAR_PLAY_THROUGH" Role="SPRW_TRACK_POPULAR_PLAY_THROUGH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SPRW_TRACK">
+        <PropertyRef Name="TRACK_ID" />
+      </Principal>
+      <Dependent Role="SPRW_TRACK_POPULAR_PLAY_THROUGH">
+        <PropertyRef Name="TRACK_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SPRW_TRAC__TRACK__531856C7">
+    <End Type="sparrow_dbModel.SPRW_TRACK" Role="SPRW_TRACK" Multiplicity="1" />
+    <End Type="sparrow_dbModel.SPRW_TRACK_POPULAR_PLAYS" Role="SPRW_TRACK_POPULAR_PLAYS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SPRW_TRACK">
+        <PropertyRef Name="TRACK_ID" />
+      </Principal>
+      <Dependent Role="SPRW_TRACK_POPULAR_PLAYS">
+        <PropertyRef Name="TRACK_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SPRW_TRAC__TRACK__55F4C372">
+    <End Type="sparrow_dbModel.SPRW_TRACK" Role="SPRW_TRACK" Multiplicity="1" />
+    <End Type="sparrow_dbModel.SPRW_TRACK_POPULAR_SELECT" Role="SPRW_TRACK_POPULAR_SELECT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SPRW_TRACK">
+        <PropertyRef Name="TRACK_ID" />
+      </Principal>
+      <Dependent Role="SPRW_TRACK_POPULAR_SELECT">
+        <PropertyRef Name="TRACK_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SPRW_TRAC__TRACK__58D1301D">
+    <End Type="sparrow_dbModel.SPRW_TRACK" Role="SPRW_TRACK" Multiplicity="1" />
+    <End Type="sparrow_dbModel.SPRW_TRACK_POPULAR_SKIPS" Role="SPRW_TRACK_POPULAR_SKIPS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SPRW_TRACK">
+        <PropertyRef Name="TRACK_ID" />
+      </Principal>
+      <Dependent Role="SPRW_TRACK_POPULAR_SKIPS">
+        <PropertyRef Name="TRACK_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="SPRW_ALBUM_IMG">
+    <Key>
+      <PropertyRef Name="IMG_ID" />
+    </Key>
+    <Property Name="IMG_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ALBUM_ID" Type="Int32" Nullable="false" />
+    <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DESCRP" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="IMG_PATH" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ACT_IND" Type="Boolean" Nullable="false" />
+    <Property Name="LAST_MAINT_USER_ID" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="LAST_MAINT_TIME" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="SPRW_ALBUM" Relationship="sparrow_dbModel.FK__SPRW_ALBU__ALBUM__634EBE90" FromRole="SPRW_ALBUM_IMG" ToRole="SPRW_ALBUM" />
+  </EntityType>
+  <Association Name="FK__SPRW_ALBU__ALBUM__634EBE90">
+    <End Type="sparrow_dbModel.SPRW_ALBUM" Role="SPRW_ALBUM" Multiplicity="1" />
+    <End Type="sparrow_dbModel.SPRW_ALBUM_IMG" Role="SPRW_ALBUM_IMG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SPRW_ALBUM">
+        <PropertyRef Name="ALBUM_ID" />
+      </Principal>
+      <Dependent Role="SPRW_ALBUM_IMG">
+        <PropertyRef Name="ALBUM_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="SPRW_MARKET_LOCATIONS">
+    <Key>
+      <PropertyRef Name="MARKET_ID" />
+    </Key>
+    <Property Name="MARKET_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CITY" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="STATE" Type="Int32" Nullable="false" />
+    <Property Name="LAT_COORDS" Type="Decimal" Nullable="false" Precision="18" Scale="9" />
+    <Property Name="LONG_COORDS" Type="Decimal" Nullable="false" Precision="18" Scale="9" />
+    <Property Name="ZIP" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="SPRW_ARTIST" Relationship="sparrow_dbModel.FK__SPRW_ARTI__MARKE__7C1A6C5A" FromRole="SPRW_MARKET_LOCATIONS" ToRole="SPRW_ARTIST" />
+    <NavigationProperty Name="SPRW_MARKET_STATES" Relationship="sparrow_dbModel.FK__SPRW_MARK__STATE__7EF6D905" FromRole="SPRW_MARKET_LOCATIONS" ToRole="SPRW_MARKET_STATES" />
+  </EntityType>
+  <EntityType Name="SPRW_MARKET_STATES">
+    <Key>
+      <PropertyRef Name="STATE_ID" />
+    </Key>
+    <Property Name="STATE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="STATE_NAME" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="SPRW_MARKET_LOCATIONS" Relationship="sparrow_dbModel.FK__SPRW_MARK__STATE__7EF6D905" FromRole="SPRW_MARKET_STATES" ToRole="SPRW_MARKET_LOCATIONS" />
+  </EntityType>
+  <Association Name="FK__SPRW_ARTI__MARKE__7C1A6C5A">
+    <End Type="sparrow_dbModel.SPRW_MARKET_LOCATIONS" Role="SPRW_MARKET_LOCATIONS" Multiplicity="0..1" />
+    <End Type="sparrow_dbModel.SPRW_ARTIST" Role="SPRW_ARTIST" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SPRW_MARKET_LOCATIONS">
+        <PropertyRef Name="MARKET_ID" />
+      </Principal>
+      <Dependent Role="SPRW_ARTIST">
+        <PropertyRef Name="MARKET_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SPRW_MARK__STATE__7EF6D905">
+    <End Type="sparrow_dbModel.SPRW_MARKET_STATES" Role="SPRW_MARKET_STATES" Multiplicity="1" />
+    <End Type="sparrow_dbModel.SPRW_MARKET_LOCATIONS" Role="SPRW_MARKET_LOCATIONS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SPRW_MARKET_STATES">
+        <PropertyRef Name="STATE_ID" />
+      </Principal>
+      <Dependent Role="SPRW_MARKET_LOCATIONS">
+        <PropertyRef Name="STATE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="SPRW_USER_FILTER">
+    <Key>
+      <PropertyRef Name="FILTER_ID" />
+    </Key>
+    <Property Name="FILTER_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="FILTER" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ACT_IND" Type="Boolean" Nullable="false" />
+    <Property Name="USER_ID" Type="Int32" Nullable="false" />
+    <Property Name="LAST_MAINT_USER" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="LAST_MAINT_TIME" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="SPRW_USER" Relationship="sparrow_dbModel.FK__SPRW_USER__USER___0880433F" FromRole="SPRW_USER_FILTER" ToRole="SPRW_USER" />
+  </EntityType>
+  <Association Name="FK__SPRW_USER__USER___0880433F">
+    <End Type="sparrow_dbModel.SPRW_USER" Role="SPRW_USER" Multiplicity="1" />
+    <End Type="sparrow_dbModel.SPRW_USER_FILTER" Role="SPRW_USER_FILTER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SPRW_USER">
+        <PropertyRef Name="USER_ID" />
+      </Principal>
+      <Dependent Role="SPRW_USER_FILTER">
+        <PropertyRef Name="USER_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="SPRW_ARTIST_SETTINGS">
+    <Key>
+      <PropertyRef Name="SETTING_ID" />
+    </Key>
+    <Property Name="SETTING_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ARTIST_ID" Type="Int32" Nullable="false" />
+    <Property Name="SETTING" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="SPRW_ARTIST" Relationship="sparrow_dbModel.FK__SPRW_ARTI__ARTIS__1E6F845E" FromRole="SPRW_ARTIST_SETTINGS" ToRole="SPRW_ARTIST" />
+  </EntityType>
+  <Association Name="FK__SPRW_ARTI__ARTIS__1E6F845E">
+    <End Type="sparrow_dbModel.SPRW_ARTIST" Role="SPRW_ARTIST" Multiplicity="1" />
+    <End Type="sparrow_dbModel.SPRW_ARTIST_SETTINGS" Role="SPRW_ARTIST_SETTINGS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SPRW_ARTIST">
+        <PropertyRef Name="ARTIST_ID" />
+      </Principal>
+      <Dependent Role="SPRW_ARTIST_SETTINGS">
+        <PropertyRef Name="ARTIST_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

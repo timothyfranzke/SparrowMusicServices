@@ -1,0 +1,21 @@
+DEBUG 2016-02-04 19:22:45,653 101 Sparrow.Services.Utils.Auth - Method:GenerateToken | salt:671543101 | password:4fd91f648b5ac5fa7f443407466eab0d06c9ab46a00bb8075741e610596af9f2 | email:timothyfranzke@gmail.com
+DEBUG 2016-02-04 19:22:45,662 101 Sparrow.Services.Utils.Auth - Method:GenerateToken | rawToken:6715431014fd91f648b5ac5fa7f443407466eab0d06c9ab46a00bb8075741e610596af9f2timothyfranzke@gmail.com
+DEBUG 2016-02-04 19:22:45,662 101 Sparrow.Services.Utils.Auth - Method:GenerateToken | token:776b8b23b703786b2a0fac186c7316fd1c64f02b6e43ac86bfa6458b988e428b
+DEBUG 2016-02-04 19:23:04,807 102 Sparrow.Services.Utils.Auth - Method:GenerateToken | salt:671543101 | password:4fd91f648b5ac5fa7f443407466eab0d06c9ab46a00bb8075741e610596af9f2 | email:timothyfranzke@gmail.com
+DEBUG 2016-02-04 19:23:04,808 102 Sparrow.Services.Utils.Auth - Method:GenerateToken | rawToken:6715431014fd91f648b5ac5fa7f443407466eab0d06c9ab46a00bb8075741e610596af9f2timothyfranzke@gmail.com
+DEBUG 2016-02-04 19:23:04,808 102 Sparrow.Services.Utils.Auth - Method:GenerateToken | token:776b8b23b703786b2a0fac186c7316fd1c64f02b6e43ac86bfa6458b988e428b
+DEBUG 2016-02-04 19:23:54,667 103 Sparrow.Services.Utils.Auth - Method:GenerateToken | salt:671543101 | password:4fd91f648b5ac5fa7f443407466eab0d06c9ab46a00bb8075741e610596af9f2 | email:timothyfranzke@gmail.com
+DEBUG 2016-02-04 19:23:54,667 103 Sparrow.Services.Utils.Auth - Method:GenerateToken | rawToken:6715431014fd91f648b5ac5fa7f443407466eab0d06c9ab46a00bb8075741e610596af9f2timothyfranzke@gmail.com
+DEBUG 2016-02-04 19:23:54,667 103 Sparrow.Services.Utils.Auth - Method:GenerateToken | token:776b8b23b703786b2a0fac186c7316fd1c64f02b6e43ac86bfa6458b988e428b
+ERROR 2016-02-04 19:26:45,614 99 Sparrow.Services.Data.Repository.ArtistRepository - method : AddTrackPopularityPlayThrough | exception : An error occurred while updating the entries. See the inner exception for details.
+DEBUG 2016-02-04 19:27:37,251 104 Sparrow.Services.Utils.Auth - Method:GenerateToken | salt:671543101 | password:4fd91f648b5ac5fa7f443407466eab0d06c9ab46a00bb8075741e610596af9f2 | email:timothyfranzke@gmail.com
+DEBUG 2016-02-04 19:27:37,251 104 Sparrow.Services.Utils.Auth - Method:GenerateToken | rawToken:6715431014fd91f648b5ac5fa7f443407466eab0d06c9ab46a00bb8075741e610596af9f2timothyfranzke@gmail.com
+DEBUG 2016-02-04 19:27:37,252 104 Sparrow.Services.Utils.Auth - Method:GenerateToken | token:776b8b23b703786b2a0fac186c7316fd1c64f02b6e43ac86bfa6458b988e428b
+DEBUG 2016-02-04 19:29:27,684 102 Sparrow.Services.Utils.Auth - Method:GenerateToken | salt:671543101 | password:4fd91f648b5ac5fa7f443407466eab0d06c9ab46a00bb8075741e610596af9f2 | email:timothyfranzke@gmail.com
+DEBUG 2016-02-04 19:29:27,684 102 Sparrow.Services.Utils.Auth - Method:GenerateToken | rawToken:6715431014fd91f648b5ac5fa7f443407466eab0d06c9ab46a00bb8075741e610596af9f2timothyfranzke@gmail.com
+DEBUG 2016-02-04 19:29:27,684 102 Sparrow.Services.Utils.Auth - Method:GenerateToken | token:776b8b23b703786b2a0fac186c7316fd1c64f02b6e43ac86bfa6458b988e428b
+ERROR 2016-02-04 19:32:18,476 106 Sparrow.Services.Data.Repository.ArtistRepository - method : AddTrackPopularityPlayThrough | exception : An error occurred while updating the entries. See the inner exception for details.
+DEBUG 2016-02-04 19:46:39,358 87 Sparrow.Services.Utils.Auth - Method:GenerateToken | salt:671543101 | password:4fd91f648b5ac5fa7f443407466eab0d06c9ab46a00bb8075741e610596af9f2 | email:timothyfranzke@gmail.com
+DEBUG 2016-02-04 19:46:39,359 87 Sparrow.Services.Utils.Auth - Method:GenerateToken | rawToken:6715431014fd91f648b5ac5fa7f443407466eab0d06c9ab46a00bb8075741e610596af9f2timothyfranzke@gmail.com
+DEBUG 2016-02-04 19:46:39,359 87 Sparrow.Services.Utils.Auth - Method:GenerateToken | token:776b8b23b703786b2a0fac186c7316fd1c64f02b6e43ac86bfa6458b988e428b
+ERROR 2016-02-04 19:49:31,026 89 Sparrow.Services.Data.Repository.ArtistRepository - method : AddTrackPopularityPlayThrough | exception : An error occurred while updating the entries. See the inner exception for details.
