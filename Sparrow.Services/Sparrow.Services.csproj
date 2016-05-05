@@ -202,6 +202,12 @@
     <Compile Include="Data\SPRW_MARKET_STATES.cs">
       <DependentUpon>Sparrow.tt</DependentUpon>
     </Compile>
+    <Compile Include="Data\sprw_playlist.cs">
+      <DependentUpon>Sparrow.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\SPRW_PLAYLIST_PAGES.cs">
+      <DependentUpon>Sparrow.tt</DependentUpon>
+    </Compile>
     <Compile Include="Data\SPRW_POP_ARTIST.cs">
       <DependentUpon>Sparrow.tt</DependentUpon>
     </Compile>
@@ -230,6 +236,9 @@
       <DependentUpon>Sparrow.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\SPRW_TRACK_POPULAR_SKIPS.cs">
+      <DependentUpon>Sparrow.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\SPRW_TRACK_QUEUE.cs">
       <DependentUpon>Sparrow.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\SPRW_USER.cs">

@@ -26,6 +26,7 @@ namespace Sparrow.Services.Models
         public string City { get; set; }
         public string State { get; set; }
         public int Zip { get; set; }
+        public string Setting { get; set; }
     }
     public class ModifyArtistModel
     {

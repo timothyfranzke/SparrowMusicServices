@@ -65,6 +65,48 @@ namespace Sparrow.Services.Data.Repository
             return playlist;
         }
 
+        public PlaylistPageModel GetPlaylistMetaData()
+        {
+            var pageModel = new PlaylistPageModel();
+            try
+            {
+                using (var context = new sparrow_dbEntities())
+                {
+                    var playlistId = context.sprw_playlist.Max(i => i.PLAYLIST_ID);
+                    var pages = context.SPRW_PLAYLIST_PAGES.Where(i => i.PLAYLIST_ID == playlistId).Max(i => i.PAGE_NUM);
+                    pageModel.PlaylistID = playlistId;
+                    pageModel.TotalPages = pages;
+                }
+
+            }
+            catch (Exception e)
+            {
+                
+            }
+            return pageModel;
+        }
+
+        public string GetPlaylist(int page, int playlistId)
+        {
+            var playlist = string.Empty;
+            try
+            {
+                using (var context = new sparrow_dbEntities())
+                {
+                    var model = context.SPRW_PLAYLIST_PAGES.FirstOrDefault(
+                        i => i.PLAYLIST_ID == playlistId && i.PAGE_NUM == page);
+                    if (model != null)
+                        playlist =
+                            model.PLAYLIST;
+                }
+            }
+            catch (Exception e)
+            {
+                
+            }
+            return playlist;
+        }
+
         public IEnumerable<ArtistModel> SearchArtists(string name)
         {
             var artists = new List<ArtistModel>();

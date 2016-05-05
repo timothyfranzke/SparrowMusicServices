@@ -18,9 +18,10 @@ namespace Sparrow.Services.API
                 ArtistId = id,
                 ReleaseDate = DateTime.Now
             };
-
+            
             Repository.CreateArtistAssociation(model.UserEmail, id);
             Repository.CreateAlbum(album);
+            Repository.CreateArtistSetting(id, model.Setting);
             CreateArtistDirectory(id);
 
             return id;

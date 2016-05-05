@@ -391,11 +391,11 @@ namespace Sparrow.Services.Controllers
 
         [HttpPut]
         [ActionName("Setting")]
-        public HttpResponseMessage UpdateArtistSetting([FromBody]string userEmail, [FromBody]string token, [FromBody] SettingModel model)
+        public HttpResponseMessage UpdateArtistSetting([FromBody] SettingModel model)
         {
             try
             {
-                if (Security.Verify(token, userEmail, model.ArtistId))
+                if (Security.Verify(model.Token, model.UserEmail, model.ArtistId))
                 {
                     API.Artist.UpdateSetting(model);
                     return Request.CreateResponse(HttpStatusCode.OK);

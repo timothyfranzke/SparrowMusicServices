@@ -9,6 +9,8 @@ namespace Sparrow.Services.Utils
 {
     public static class File
     {
+        private const string AccessKey = "AKIAJDNE4SQR5IKQS7ZQ";
+        private const string SecretKey = "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";
         public static bool CreateCloudFile()
         {
             return true;
@@ -170,10 +172,12 @@ namespace Sparrow.Services.Utils
             }
 
             CloudBlockBlob blockBlob = container.GetBlockBlobReference(path + fileNum + fileType);
+               
 
             using (var stream = new MemoryStream(Convert.FromBase64String(file), writable: false))
             {
                 blockBlob.UploadFromStream(stream);
+                
             }
         }
 
@@ -205,6 +209,7 @@ namespace Sparrow.Services.Utils
                 blockBlob.UploadFromStream(stream);
             }
         }
+
 
         public static byte[] GetAudioFile(int? artistId, int? albumId, int? trackId)
         {

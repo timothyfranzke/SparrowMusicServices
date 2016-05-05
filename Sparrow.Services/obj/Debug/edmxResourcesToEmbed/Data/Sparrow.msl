@@ -126,6 +126,7 @@
     <EntitySetMapping Name="SPRW_TRACK">
       <EntityTypeMapping TypeName="sparrow_dbModel.SPRW_TRACK">
         <MappingFragment StoreEntitySet="SPRW_TRACK">
+          <ScalarProperty Name="IS_REJECTED" ColumnName="IS_REJECTED" />
           <ScalarProperty Name="SECONDS" ColumnName="SECONDS" />
           <ScalarProperty Name="MINUTES" ColumnName="MINUTES" />
           <ScalarProperty Name="TRACK_ID" ColumnName="TRACK_ID" />
@@ -297,6 +298,35 @@
           <ScalarProperty Name="SETTING" ColumnName="SETTING" />
           <ScalarProperty Name="ARTIST_ID" ColumnName="ARTIST_ID" />
           <ScalarProperty Name="SETTING_ID" ColumnName="SETTING_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sprw_playlist">
+      <EntityTypeMapping TypeName="sparrow_dbModel.sprw_playlist">
+        <MappingFragment StoreEntitySet="sprw_playlist">
+          <ScalarProperty Name="CREATED" ColumnName="CREATED" />
+          <ScalarProperty Name="IS_ACTIVE" ColumnName="IS_ACTIVE" />
+          <ScalarProperty Name="PLAYLIST_ID" ColumnName="PLAYLIST_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SPRW_PLAYLIST_PAGES">
+      <EntityTypeMapping TypeName="sparrow_dbModel.SPRW_PLAYLIST_PAGES">
+        <MappingFragment StoreEntitySet="SPRW_PLAYLIST_PAGES">
+          <ScalarProperty Name="PLAYLIST" ColumnName="PLAYLIST" />
+          <ScalarProperty Name="PAGE_NUM" ColumnName="PAGE_NUM" />
+          <ScalarProperty Name="PLAYLIST_ID" ColumnName="PLAYLIST_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SPRW_TRACK_QUEUE">
+      <EntityTypeMapping TypeName="sparrow_dbModel.SPRW_TRACK_QUEUE">
+        <MappingFragment StoreEntitySet="SPRW_TRACK_QUEUE">
+          <ScalarProperty Name="TRACK_ID" ColumnName="TRACK_ID" />
+          <ScalarProperty Name="DATE_QUEUED" ColumnName="DATE_QUEUED" />
+          <ScalarProperty Name="IS_REVIEWING" ColumnName="IS_REVIEWING" />
+          <ScalarProperty Name="TRACK_PATH" ColumnName="TRACK_PATH" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

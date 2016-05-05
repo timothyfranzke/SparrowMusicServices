@@ -81,7 +81,7 @@ namespace Sparrow.Services.API
 
         public static FollowedArtistModel UnFollowArtist(CreateArtistAssociation model)
         {
-            ArtistRepo.FollowArtist(model.UserEmail, model.ArtistId);
+            ArtistRepo.UnFollowArtist(model.UserEmail, model.ArtistId);
             return UserRepo.GetUsersArtists(model.UserEmail);
         }
 

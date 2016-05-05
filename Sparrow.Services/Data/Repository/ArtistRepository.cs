@@ -348,6 +348,21 @@ namespace Sparrow.Services.Data.Repository
             }
             return imageId;
         }
+
+        public void CreateArtistSetting(int artistId, string artistSetting)
+        {
+            using (var context = new sparrow_dbEntities())
+            {
+                var setting = new SPRW_ARTIST_SETTINGS()
+                {
+                    ARTIST_ID = artistId,
+                    SETTING = artistSetting
+                };
+                context.SPRW_ARTIST_SETTINGS.Add(setting);
+                context.SaveChanges();
+            }
+        }
+
         public ArtistModel GetArtistById(int artistId)
         {
             ArtistModel artistModel;
@@ -830,6 +845,7 @@ namespace Sparrow.Services.Data.Repository
         }
         public int CreateTrack(CreateTrackModel model)
         {
+            var trackId = -1;
             DateTime relaseDate;
             if (model.ReleaseDate == null)
             {
@@ -848,23 +864,37 @@ namespace Sparrow.Services.Data.Repository
                     {
                         ARTIST_ID = model.ArtistId,
                         ALBUM_ID = model.AlbumId,
-                        ACT_IND = true,
+                        ACT_IND = false,
+                        IS_REJECTED = false,
                         RELEASE_DATE = relaseDate,
                         NAME = model.TrackName,
                         DESCRP = model.Description,
                         LAST_MAINT_TIME = DateTime.Now,
                         LAST_MAINT_USER_ID = model.UserEmail
                     };
+
                     context.SPRW_TRACK.Add(album);
                     context.SaveChanges();
 
-                    return album.TRACK_ID;
+                    trackId = album.TRACK_ID;
+                    var trackQueue = new SPRW_TRACK_QUEUE
+                    {
+                        TRACK_ID = trackId,
+                        DATE_QUEUED = DateTime.Now,
+                        IS_REVIEWING = false,
+                        TRACK_PATH = ""
+                    };
+
+                    context.SPRW_TRACK_QUEUE.Add(trackQueue);
+                    context.SaveChanges();
                 }
             }
             catch (Exception e)
             {
                 throw e;
             }
+
+            return trackId;
         }
 
         public void UpdateTrack(ModifyTrackModel model)

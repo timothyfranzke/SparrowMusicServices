@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="sparrow_dbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="sparrow_dbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="ARTIST_BLOG">
     <Key>
       <PropertyRef Name="BLOG_ID" />
@@ -147,6 +147,23 @@ warning 6002: The table/view 'sparrow_db.dbo.SPRW_ARTIST_POP_ARTIST' does not ha
     <Property Name="STATE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="STATE_NAME" Type="varchar" MaxLength="3" Nullable="false" />
   </EntityType>
+  <EntityType Name="sprw_playlist">
+    <Key>
+      <PropertyRef Name="PLAYLIST_ID" />
+    </Key>
+    <Property Name="PLAYLIST_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IS_ACTIVE" Type="bit" Nullable="false" />
+    <Property Name="CREATED" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SPRW_PLAYLIST_PAGES">
+    <Key>
+      <PropertyRef Name="PLAYLIST_ID" />
+      <PropertyRef Name="PAGE_NUM" />
+    </Key>
+    <Property Name="PLAYLIST_ID" Type="bigint" Nullable="false" />
+    <Property Name="PAGE_NUM" Type="int" Nullable="false" />
+    <Property Name="PLAYLIST" Type="varchar(max)" Nullable="false" />
+  </EntityType>
   <EntityType Name="SPRW_POP_ARTIST">
     <Key>
       <PropertyRef Name="POP_ARTIST_ID" />
@@ -197,6 +214,7 @@ warning 6002: The table/view 'sparrow_db.dbo.SPRW_POP_ARTIST_GENRE' does not hav
     <Property Name="POP_INDEX" Type="decimal" Precision="10" Scale="5" />
     <Property Name="MINUTES" Type="int" />
     <Property Name="SECONDS" Type="int" />
+    <Property Name="IS_REJECTED" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="SPRW_TRACK_POPULAR_DISLIKE">
     <Key>
@@ -251,6 +269,16 @@ warning 6002: The table/view 'sparrow_db.dbo.SPRW_POP_ARTIST_GENRE' does not hav
     <Property Name="TRACK_ID" Type="int" Nullable="false" />
     <Property Name="DISLIKE_DATE" Type="datetime" Nullable="false" />
     <Property Name="USER_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SPRW_TRACK_QUEUE">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TRACK_PATH" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IS_REVIEWING" Type="bit" Nullable="false" />
+    <Property Name="DATE_QUEUED" Type="datetime" Nullable="false" />
+    <Property Name="TRACK_ID" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="SPRW_USER">
     <Key>
@@ -468,6 +496,18 @@ warning 6002: The table/view 'sparrow_db.dbo.SPRW_POP_ARTIST_GENRE' does not hav
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK__SPRW_PLAY__PLAYL__42ACE4D4">
+    <End Role="sprw_playlist" Type="Self.sprw_playlist" Multiplicity="1" />
+    <End Role="SPRW_PLAYLIST_PAGES" Type="Self.SPRW_PLAYLIST_PAGES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sprw_playlist">
+        <PropertyRef Name="PLAYLIST_ID" />
+      </Principal>
+      <Dependent Role="SPRW_PLAYLIST_PAGES">
+        <PropertyRef Name="PLAYLIST_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK__SPRW_POP___GENRE__6FE99F9F">
     <End Role="SPRW_GENRE" Type="Self.SPRW_GENRE" Multiplicity="1" />
     <End Role="SPRW_POP_ARTIST_GENRE" Type="Self.SPRW_POP_ARTIST_GENRE" Multiplicity="*" />
@@ -588,6 +628,18 @@ warning 6002: The table/view 'sparrow_db.dbo.SPRW_POP_ARTIST_GENRE' does not hav
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK__SPRW_TRAC__TRACK__57A801BA">
+    <End Role="SPRW_TRACK" Type="Self.SPRW_TRACK" Multiplicity="1" />
+    <End Role="SPRW_TRACK_QUEUE" Type="Self.SPRW_TRACK_QUEUE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SPRW_TRACK">
+        <PropertyRef Name="TRACK_ID" />
+      </Principal>
+      <Dependent Role="SPRW_TRACK_QUEUE">
+        <PropertyRef Name="TRACK_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK__SPRW_TRAC__TRACK__58D1301D">
     <End Role="SPRW_TRACK" Type="Self.SPRW_TRACK" Multiplicity="1" />
     <End Role="SPRW_TRACK_POPULAR_SKIPS" Type="Self.SPRW_TRACK_POPULAR_SKIPS" Multiplicity="*" />
@@ -649,6 +701,8 @@ warning 6002: The table/view 'sparrow_db.dbo.SPRW_POP_ARTIST_GENRE' does not hav
     <EntitySet Name="SPRW_GENRE" EntityType="Self.SPRW_GENRE" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SPRW_MARKET_LOCATIONS" EntityType="Self.SPRW_MARKET_LOCATIONS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SPRW_MARKET_STATES" EntityType="Self.SPRW_MARKET_STATES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sprw_playlist" EntityType="Self.sprw_playlist" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SPRW_PLAYLIST_PAGES" EntityType="Self.SPRW_PLAYLIST_PAGES" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SPRW_POP_ARTIST" EntityType="Self.SPRW_POP_ARTIST" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SPRW_POP_INDEX" EntityType="Self.SPRW_POP_INDEX" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SPRW_ROLE" EntityType="Self.SPRW_ROLE" Schema="dbo" store:Type="Tables" />
@@ -659,6 +713,7 @@ warning 6002: The table/view 'sparrow_db.dbo.SPRW_POP_ARTIST_GENRE' does not hav
     <EntitySet Name="SPRW_TRACK_POPULAR_PLAYS" EntityType="Self.SPRW_TRACK_POPULAR_PLAYS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SPRW_TRACK_POPULAR_SELECT" EntityType="Self.SPRW_TRACK_POPULAR_SELECT" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SPRW_TRACK_POPULAR_SKIPS" EntityType="Self.SPRW_TRACK_POPULAR_SKIPS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SPRW_TRACK_QUEUE" EntityType="Self.SPRW_TRACK_QUEUE" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SPRW_USER" EntityType="Self.SPRW_USER" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SPRW_USER_ARTIST_FOLLOW" EntityType="Self.SPRW_USER_ARTIST_FOLLOW" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SPRW_USER_FILTER" EntityType="Self.SPRW_USER_FILTER" Schema="dbo" store:Type="Tables" />
@@ -734,6 +789,10 @@ warning 6002: The table/view 'sparrow_db.dbo.SPRW_POP_ARTIST_GENRE' does not hav
       <End Role="SPRW_MARKET_STATES" EntitySet="SPRW_MARKET_STATES" />
       <End Role="SPRW_MARKET_LOCATIONS" EntitySet="SPRW_MARKET_LOCATIONS" />
     </AssociationSet>
+    <AssociationSet Name="FK__SPRW_PLAY__PLAYL__42ACE4D4" Association="Self.FK__SPRW_PLAY__PLAYL__42ACE4D4">
+      <End Role="sprw_playlist" EntitySet="sprw_playlist" />
+      <End Role="SPRW_PLAYLIST_PAGES" EntitySet="SPRW_PLAYLIST_PAGES" />
+    </AssociationSet>
     <AssociationSet Name="FK__SPRW_POP___GENRE__6FE99F9F" Association="Self.FK__SPRW_POP___GENRE__6FE99F9F">
       <End Role="SPRW_GENRE" EntitySet="SPRW_GENRE" />
       <End Role="SPRW_POP_ARTIST_GENRE" EntitySet="SPRW_POP_ARTIST_GENRE" />
@@ -773,6 +832,10 @@ warning 6002: The table/view 'sparrow_db.dbo.SPRW_POP_ARTIST_GENRE' does not hav
     <AssociationSet Name="FK__SPRW_TRAC__TRACK__55F4C372" Association="Self.FK__SPRW_TRAC__TRACK__55F4C372">
       <End Role="SPRW_TRACK" EntitySet="SPRW_TRACK" />
       <End Role="SPRW_TRACK_POPULAR_SELECT" EntitySet="SPRW_TRACK_POPULAR_SELECT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SPRW_TRAC__TRACK__57A801BA" Association="Self.FK__SPRW_TRAC__TRACK__57A801BA">
+      <End Role="SPRW_TRACK" EntitySet="SPRW_TRACK" />
+      <End Role="SPRW_TRACK_QUEUE" EntitySet="SPRW_TRACK_QUEUE" />
     </AssociationSet>
     <AssociationSet Name="FK__SPRW_TRAC__TRACK__58D1301D" Association="Self.FK__SPRW_TRAC__TRACK__58D1301D">
       <End Role="SPRW_TRACK" EntitySet="SPRW_TRACK" />

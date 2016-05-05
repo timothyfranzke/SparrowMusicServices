@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Runtime.Caching;
 using System.Web.Http;
 using System.Web.Http.Cors;
+using Newtonsoft.Json;
 using Sparrow.Services.API;
 using Sparrow.Services.Models;
 
@@ -21,20 +23,22 @@ namespace Sparrow.Services.Controllers
         }
         [HttpGet]
         [ActionName("Discover")]
-        public HttpResponseMessage GetPlaylist(int page)
+        public HttpResponseMessage GetPlaylist(int? page, int? playlistId)
         {
             var memory = MemoryCache.Default;
             try
             {
-                if (!memory.Contains("playlist"))
+                if (page == null || playlistId == null)
                 {
-                    var expiration = DateTimeOffset.UtcNow.AddMinutes(5);
-                    var playlist = API.Playlist.GetPlaylist(page);
-                    
-                    memory.Add("playlist", playlist, expiration);
-                    return Request.CreateResponse(HttpStatusCode.OK, playlist);
+                    var playlistMetaData = Playlist.GetPlaylistMetaData();
+                    return Request.CreateResponse(HttpStatusCode.OK, playlistMetaData);
                 }
-                return Request.CreateResponse(HttpStatusCode.OK, memory.Get("playlist"));
+                else
+                {
+                    var playlist = API.Playlist.GetPlaylist((int) page, (int) playlistId);
+                    var playlistModel = JsonConvert.DeserializeObject<List<PlaylistTrack>>(playlist);
+                    return Request.CreateResponse(HttpStatusCode.OK, playlistModel);
+                }
             }
             catch (Exception ex)
             {

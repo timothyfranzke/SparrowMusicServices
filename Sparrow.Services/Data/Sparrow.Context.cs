@@ -48,5 +48,8 @@ namespace Sparrow.Services.Data
         public virtual DbSet<SPRW_MARKET_STATES> SPRW_MARKET_STATES { get; set; }
         public virtual DbSet<SPRW_USER_FILTER> SPRW_USER_FILTER { get; set; }
         public virtual DbSet<SPRW_ARTIST_SETTINGS> SPRW_ARTIST_SETTINGS { get; set; }
+        public virtual DbSet<sprw_playlist> sprw_playlist { get; set; }
+        public virtual DbSet<SPRW_PLAYLIST_PAGES> SPRW_PLAYLIST_PAGES { get; set; }
+        public virtual DbSet<SPRW_TRACK_QUEUE> SPRW_TRACK_QUEUE { get; set; }
     }
 }

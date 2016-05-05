@@ -43,4 +43,10 @@ namespace Sparrow.Services.Models
         public int Total { get; set; }
         public List<PlaylistCachePageModel> Pages { get; set; } 
     }
+
+    public class PlaylistPageModel
+    {
+        public long PlaylistID { get; set; }
+        public int TotalPages { get; set; }
+    }
 }

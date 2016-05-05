@@ -23,6 +23,7 @@ namespace Sparrow.Services.Data
             this.SPRW_TRACK_POPULAR_PLAYS = new HashSet<SPRW_TRACK_POPULAR_PLAYS>();
             this.SPRW_TRACK_POPULAR_SELECT = new HashSet<SPRW_TRACK_POPULAR_SELECT>();
             this.SPRW_TRACK_POPULAR_SKIPS = new HashSet<SPRW_TRACK_POPULAR_SKIPS>();
+            this.SPRW_TRACK_QUEUE = new HashSet<SPRW_TRACK_QUEUE>();
         }
     
         public int TRACK_ID { get; set; }
@@ -37,6 +38,7 @@ namespace Sparrow.Services.Data
         public Nullable<decimal> POP_INDEX { get; set; }
         public Nullable<int> MINUTES { get; set; }
         public Nullable<int> SECONDS { get; set; }
+        public bool IS_REJECTED { get; set; }
     
         public virtual SPRW_ALBUM SPRW_ALBUM { get; set; }
         public virtual SPRW_ARTIST SPRW_ARTIST { get; set; }
@@ -47,5 +49,6 @@ namespace Sparrow.Services.Data
         public virtual ICollection<SPRW_TRACK_POPULAR_PLAYS> SPRW_TRACK_POPULAR_PLAYS { get; set; }
         public virtual ICollection<SPRW_TRACK_POPULAR_SELECT> SPRW_TRACK_POPULAR_SELECT { get; set; }
         public virtual ICollection<SPRW_TRACK_POPULAR_SKIPS> SPRW_TRACK_POPULAR_SKIPS { get; set; }
+        public virtual ICollection<SPRW_TRACK_QUEUE> SPRW_TRACK_QUEUE { get; set; }
     }
 }

@@ -9,6 +9,10 @@ namespace Sparrow.Services.API
     {
         private static readonly PlayerRepository Repository = new PlayerRepository();
 
+        public static PlaylistPageModel GetPlaylistMetaData()
+        {
+            return Repository.GetPlaylistMetaData();
+        }
         public static PlaylistCacheModel GetPlaylistPages()
         {
             var playlist = (List<PlaylistTrack>)Repository.GetPlaylistByHackerNews();
@@ -37,9 +41,10 @@ namespace Sparrow.Services.API
 
             return model;
         }
-        public static IEnumerable<PlaylistTrack> GetPlaylist(int page)
+       
+        public static string GetPlaylist(int page, int playlistId)
         {
-            return Repository.GetPlaylistByHackerNews();
+            return Repository.GetPlaylist(page, playlistId);
         }
 
         public static SearchModel SearchByName(string name)
@@ -52,5 +57,6 @@ namespace Sparrow.Services.API
 
             return model;
         }
+
     }
 }

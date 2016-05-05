@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\Timothy.Timothy-HP\Documents\Visual Studio 2015\Projects\Sparrow.Services\Sparrow.Services\Data\Sparrow.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\data\Franzke\SparrowService\Sparrow.Services\Data\Sparrow.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.
