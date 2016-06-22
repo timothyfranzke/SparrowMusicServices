@@ -11,6 +11,7 @@
     <Property Name="LAST_MAINT_USER_ID" Type="Int32" Nullable="false" />
     <Property Name="LAST_MAINT_TIME" Type="DateTime" Nullable="false" Precision="3" />
     <NavigationProperty Name="SPRW_ARTIST" Relationship="Self.FK__ARTIST_BL__ARTIS__6383C8BA" FromRole="ARTIST_BLOG" ToRole="SPRW_ARTIST" />
+    <NavigationProperty Name="SPRW_USER" Relationship="sparrow_dbModel.ARTIST_BLOG_VIEWED" FromRole="ARTIST_BLOG" ToRole="SPRW_USER" />
   </EntityType>
   <EntityType Name="SPRW_ALBUM">
     <Key>
@@ -51,6 +52,7 @@
     <Property Name="MARKET_ID" Type="Int32" />
     <NavigationProperty Name="SPRW_MARKET_LOCATIONS" Relationship="sparrow_dbModel.FK__SPRW_ARTI__MARKE__7C1A6C5A" FromRole="SPRW_ARTIST" ToRole="SPRW_MARKET_LOCATIONS" />
     <NavigationProperty Name="SPRW_ARTIST_SETTINGS" Relationship="sparrow_dbModel.FK__SPRW_ARTI__ARTIS__1E6F845E" FromRole="SPRW_ARTIST" ToRole="SPRW_ARTIST_SETTINGS" />
+    <NavigationProperty Name="SPRW_ARTIST_SETTING" Relationship="sparrow_dbModel.FK__SPRW_ARTI__ARTIS__65370702" FromRole="SPRW_ARTIST" ToRole="SPRW_ARTIST_SETTING" />
   </EntityType>
   <EntityType Name="SPRW_ARTIST_EVENT">
     <Key>
@@ -186,6 +188,7 @@
     <NavigationProperty Name="SPRW_ARTIST_MEMBER" Relationship="Self.FK__SPRW_ARTI__USER___5BE2A6F2" FromRole="SPRW_USER" ToRole="SPRW_ARTIST_MEMBER" />
     <NavigationProperty Name="SPRW_ARTIST" Relationship="Self.SPRW_USER_ARTIST_FOLLOW" FromRole="SPRW_USER" ToRole="SPRW_ARTIST" />
     <NavigationProperty Name="SPRW_USER_FILTER" Relationship="sparrow_dbModel.FK__SPRW_USER__USER___0880433F" FromRole="SPRW_USER" ToRole="SPRW_USER_FILTER" />
+    <NavigationProperty Name="ARTIST_BLOG" Relationship="sparrow_dbModel.ARTIST_BLOG_VIEWED" FromRole="SPRW_USER" ToRole="ARTIST_BLOG" />
   </EntityType>
   <Association Name="FK__ARTIST_BL__ARTIS__6383C8BA">
     <End Role="SPRW_ARTIST" Type="Self.SPRW_ARTIST" Multiplicity="1" />
@@ -457,6 +460,15 @@
     <AssociationSet Name="FK__SPRW_TRAC__TRACK__57A801BA" Association="sparrow_dbModel.FK__SPRW_TRAC__TRACK__57A801BA">
       <End Role="SPRW_TRACK" EntitySet="SPRW_TRACK" />
       <End Role="SPRW_TRACK_QUEUE" EntitySet="SPRW_TRACK_QUEUE" />
+    </AssociationSet>
+    <AssociationSet Name="ARTIST_BLOG_VIEWED" Association="sparrow_dbModel.ARTIST_BLOG_VIEWED">
+      <End Role="ARTIST_BLOG" EntitySet="ARTIST_BLOG" />
+      <End Role="SPRW_USER" EntitySet="SPRW_USER" />
+    </AssociationSet>
+    <EntitySet Name="SPRW_ARTIST_SETTING" EntityType="sparrow_dbModel.SPRW_ARTIST_SETTING" />
+    <AssociationSet Name="FK__SPRW_ARTI__ARTIS__65370702" Association="sparrow_dbModel.FK__SPRW_ARTI__ARTIS__65370702">
+      <End Role="SPRW_ARTIST" EntitySet="SPRW_ARTIST" />
+      <End Role="SPRW_ARTIST_SETTING" EntitySet="SPRW_ARTIST_SETTING" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="SPRW_TRACK_POPULAR_DISLIKE">
@@ -759,6 +771,32 @@
       </Principal>
       <Dependent Role="SPRW_TRACK_QUEUE">
         <PropertyRef Name="TRACK_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ARTIST_BLOG_VIEWED">
+    <End Type="sparrow_dbModel.ARTIST_BLOG" Role="ARTIST_BLOG" Multiplicity="*" />
+    <End Type="sparrow_dbModel.SPRW_USER" Role="SPRW_USER" Multiplicity="*" />
+  </Association>
+  <EntityType Name="SPRW_ARTIST_SETTING">
+    <Key>
+      <PropertyRef Name="ARTIST_ID" />
+      <PropertyRef Name="KEY" />
+    </Key>
+    <Property Name="ARTIST_ID" Type="Int32" Nullable="false" />
+    <Property Name="KEY" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="VALUE" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="SPRW_ARTIST" Relationship="sparrow_dbModel.FK__SPRW_ARTI__ARTIS__65370702" FromRole="SPRW_ARTIST_SETTING" ToRole="SPRW_ARTIST" />
+  </EntityType>
+  <Association Name="FK__SPRW_ARTI__ARTIS__65370702">
+    <End Type="sparrow_dbModel.SPRW_ARTIST" Role="SPRW_ARTIST" Multiplicity="1" />
+    <End Type="sparrow_dbModel.SPRW_ARTIST_SETTING" Role="SPRW_ARTIST_SETTING" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SPRW_ARTIST">
+        <PropertyRef Name="ARTIST_ID" />
+      </Principal>
+      <Dependent Role="SPRW_ARTIST_SETTING">
+        <PropertyRef Name="ARTIST_ID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

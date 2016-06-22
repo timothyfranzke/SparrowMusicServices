@@ -58,6 +58,13 @@
         <AssociationConnector Association="sparrow_dbModel.FK__SPRW_PLAY__PLAYL__42ACE4D4" />
         <EntityTypeShape EntityType="sparrow_dbModel.SPRW_TRACK_QUEUE" Width="1.5" PointX="7.5" PointY="10.25" />
         <AssociationConnector Association="sparrow_dbModel.FK__SPRW_TRAC__TRACK__57A801BA" />
+        <AssociationConnector Association="sparrow_dbModel.ARTIST_BLOG_VIEWED" />
+        <EntityTypeShape EntityType="sparrow_dbModel.SPRW_ARTIST_TAG" Width="1.5" PointX="8" PointY="31.5" />
+        <EntityTypeShape EntityType="sparrow_dbModel.SPRW_TAG" Width="1.5" PointX="5.75" PointY="41.625" />
+        <AssociationConnector Association="sparrow_dbModel.FK__SPRW_ARTI__ARTIS__5224328E" />
+        <AssociationConnector Association="sparrow_dbModel.FK__SPRW_ARTI__TAG_I__51300E55" />
+        <EntityTypeShape EntityType="sparrow_dbModel.SPRW_ARTIST_SETTING" Width="1.5" PointX="3" PointY="12.5" />
+        <AssociationConnector Association="sparrow_dbModel.FK__SPRW_ARTI__ARTIS__65370702" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

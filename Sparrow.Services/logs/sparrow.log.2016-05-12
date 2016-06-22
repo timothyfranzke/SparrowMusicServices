@@ -1,0 +1,2 @@
+ERROR 2016-05-12 08:44:47,087 91 Sparrow.Services.Data.Repository.ArtistRepository - method : AddTrackPopularityPlayThrough | exception : An error occurred while updating the entries. See the inner exception for details.
+ERROR 2016-05-12 08:54:21,195 47 Sparrow.Services.Data.Repository.ArtistRepository - method : AddTrackPopularityPlayThrough | exception : An error occurred while updating the entries. See the inner exception for details.

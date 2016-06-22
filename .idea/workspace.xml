@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f3bd3aa4-5c21-4fc7-b283-3dfa564d4622" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Sparrow.Services.Test/bin/Debug/Sparrow.Services.Test.dll" afterPath="$PROJECT_DIR$/Sparrow.Services.Test/bin/Debug/Sparrow.Services.Test.dll" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Sparrow.Services.Test/bin/Debug/Sparrow.Services.Test.pdb" afterPath="$PROJECT_DIR$/Sparrow.Services.Test/bin/Debug/Sparrow.Services.Test.pdb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Sparrow.Services.Test/bin/Debug/Sparrow.Services.dll" afterPath="$PROJECT_DIR$/Sparrow.Services.Test/bin/Debug/Sparrow.Services.dll" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Sparrow.Services.Test/bin/Debug/Sparrow.Services.pdb" afterPath="$PROJECT_DIR$/Sparrow.Services.Test/bin/Debug/Sparrow.Services.pdb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Sparrow.Services.Test/obj/Debug/Sparrow.Services.Test.csprojResolveAssemblyReference.cache" afterPath="$PROJECT_DIR$/Sparrow.Services.Test/obj/Debug/Sparrow.Services.Test.csprojResolveAssemblyReference.cache" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Sparrow.Services.Test/obj/Debug/Sparrow.Services.Test.dll" afterPath="$PROJECT_DIR$/Sparrow.Services.Test/obj/Debug/Sparrow.Services.Test.dll" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Sparrow.Services.Test/obj/Debug/Sparrow.Services.Test.pdb" afterPath="$PROJECT_DIR$/Sparrow.Services.Test/obj/Debug/Sparrow.Services.Test.pdb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Sparrow.Services.Test/obj/Release/DesignTimeResolveAssemblyReferencesInput.cache" afterPath="$PROJECT_DIR$/Sparrow.Services.Test/obj/Release/DesignTimeResolveAssemblyReferencesInput.cache" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Sparrow.Services.v12.suo" afterPath="$PROJECT_DIR$/Sparrow.Services.v12.suo" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Sparrow.Services/bin/Sparrow.Services.dll" afterPath="$PROJECT_DIR$/Sparrow.Services/bin/Sparrow.Services.dll" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Sparrow.Services/bin/Sparrow.Services.pdb" afterPath="$PROJECT_DIR$/Sparrow.Services/bin/Sparrow.Services.pdb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Sparrow.Services/obj/Debug/Sparrow.Services.dll" afterPath="$PROJECT_DIR$/Sparrow.Services/obj/Debug/Sparrow.Services.dll" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Sparrow.Services/obj/Debug/Sparrow.Services.pdb" afterPath="$PROJECT_DIR$/Sparrow.Services/obj/Debug/Sparrow.Services.pdb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Sparrow.Services/obj/Debug/TempPE/Data.Sparrow.Designer.cs.dll" afterPath="$PROJECT_DIR$/Sparrow.Services/obj/Debug/TempPE/Data.Sparrow.Designer.cs.dll" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Sparrow.Services/obj/Debug/TempPE/Data.Sparrow.cs.dll" afterPath="$PROJECT_DIR$/Sparrow.Services/obj/Debug/TempPE/Data.Sparrow.cs.dll" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Sparrow.Services/obj/Release/DesignTimeResolveAssemblyReferencesInput.cache" afterPath="$PROJECT_DIR$/Sparrow.Services/obj/Release/DesignTimeResolveAssemblyReferencesInput.cache" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Sparrow.Services/obj/Release/Package/PackageTmp/bin/Sparrow.Services.dll" afterPath="$PROJECT_DIR$/Sparrow.Services/obj/Release/Package/PackageTmp/bin/Sparrow.Services.dll" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Sparrow.Services/obj/Release/Sparrow.Services.csprojResolveAssemblyReference.cache" afterPath="$PROJECT_DIR$/Sparrow.Services/obj/Release/Sparrow.Services.csprojResolveAssemblyReference.cache" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Sparrow.Services/obj/Release/Sparrow.Services.dll" afterPath="$PROJECT_DIR$/Sparrow.Services/obj/Release/Sparrow.Services.dll" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Sparrow.Services/obj/Release/Sparrow.Services.pdb" afterPath="$PROJECT_DIR$/Sparrow.Services/obj/Release/Sparrow.Services.pdb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Sparrow.Services/obj/Release/TempPE/Data.Sparrow.Designer.cs.dll" afterPath="$PROJECT_DIR$/Sparrow.Services/obj/Release/TempPE/Data.Sparrow.Designer.cs.dll" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Sparrow.Services/obj/Release/TempPE/Data.Sparrow.cs.dll" afterPath="$PROJECT_DIR$/Sparrow.Services/obj/Release/TempPE/Data.Sparrow.cs.dll" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Sparrow.Services/API/Playlist.cs" afterPath="$PROJECT_DIR$/Sparrow.Services/API/Playlist.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Sparrow.Services/Controllers/ArtistController.cs" afterPath="$PROJECT_DIR$/Sparrow.Services/Controllers/ArtistController.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Sparrow.Services/Controllers/PlaylistController.cs" afterPath="$PROJECT_DIR$/Sparrow.Services/Controllers/PlaylistController.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Sparrow.Services/Data/ARTIST_BLOG.cs" afterPath="$PROJECT_DIR$/Sparrow.Services/Data/ARTIST_BLOG.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Sparrow.Services/Data/SPRW_USER.cs" afterPath="$PROJECT_DIR$/Sparrow.Services/Data/SPRW_USER.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Sparrow.Services/Data/Sparrow.edmx" afterPath="$PROJECT_DIR$/Sparrow.Services/Data/Sparrow.edmx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Sparrow.Services/Data/Sparrow.edmx.diagram" afterPath="$PROJECT_DIR$/Sparrow.Services/Data/Sparrow.edmx.diagram" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Sparrow.Services/Properties/PublishProfiles/services.pubxml.user" afterPath="$PROJECT_DIR$/Sparrow.Services/Properties/PublishProfiles/services.pubxml.user" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Sparrow.Services/Sparrow.Services.csproj" afterPath="$PROJECT_DIR$/Sparrow.Services/Sparrow.Services.csproj" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Sparrow.Services/Web.config" afterPath="$PROJECT_DIR$/Sparrow.Services/Web.config" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Sparrow.Services/bin/Sparrow.Services.dll.config" afterPath="$PROJECT_DIR$/Sparrow.Services/bin/Sparrow.Services.dll.config" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Sparrow.Services/logs/sparrow.log" afterPath="$PROJECT_DIR$/Sparrow.Services/logs/sparrow.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Sparrow.Services/obj/Debug/edmxResourcesToEmbed/Data/Sparrow.csdl" afterPath="$PROJECT_DIR$/Sparrow.Services/obj/Debug/edmxResourcesToEmbed/Data/Sparrow.csdl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Sparrow.Services/obj/Debug/edmxResourcesToEmbed/Data/Sparrow.msl" afterPath="$PROJECT_DIR$/Sparrow.Services/obj/Debug/edmxResourcesToEmbed/Data/Sparrow.msl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Sparrow.Services/obj/Debug/edmxResourcesToEmbed/Data/Sparrow.ssdl" afterPath="$PROJECT_DIR$/Sparrow.Services/obj/Debug/edmxResourcesToEmbed/Data/Sparrow.ssdl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Sparrow.Services/obj/Release/Package/PackageTmp/Data/Sparrow.edmx.diagram" afterPath="$PROJECT_DIR$/Sparrow.Services/obj/Release/Package/PackageTmp/Data/Sparrow.edmx.diagram" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Sparrow.Services/obj/Release/Package/PackageTmp/Web.config" afterPath="$PROJECT_DIR$/Sparrow.Services/obj/Release/Package/PackageTmp/Web.config" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Sparrow.Services/obj/Release/Package/PackageTmp/packages.config" afterPath="$PROJECT_DIR$/Sparrow.Services/obj/Release/Package/PackageTmp/packages.config" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Sparrow.Services/obj/Release/TransformWebConfig/original/Web.config" afterPath="$PROJECT_DIR$/Sparrow.Services/obj/Release/TransformWebConfig/original/Web.config" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Sparrow.Services/obj/Release/TransformWebConfig/transformed/Web.config" afterPath="$PROJECT_DIR$/Sparrow.Services/obj/Release/TransformWebConfig/transformed/Web.config" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Sparrow.Services/obj/Release/edmxResourcesToEmbed/Data/Sparrow.csdl" afterPath="$PROJECT_DIR$/Sparrow.Services/obj/Release/edmxResourcesToEmbed/Data/Sparrow.csdl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Sparrow.Services/obj/Release/edmxResourcesToEmbed/Data/Sparrow.msl" afterPath="$PROJECT_DIR$/Sparrow.Services/obj/Release/edmxResourcesToEmbed/Data/Sparrow.msl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Sparrow.Services/obj/Release/edmxResourcesToEmbed/Data/Sparrow.ssdl" afterPath="$PROJECT_DIR$/Sparrow.Services/obj/Release/edmxResourcesToEmbed/Data/Sparrow.ssdl" />
+    </list>
+    <ignored path="SparrowService.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="SparrowService" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" />
+  <component name="JsBuildToolPackageJson" detection-done="true" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-9" />
+    <option name="y" value="-9" />
+    <option name="width" value="1938" />
+    <option name="height" value="1050" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SparrowService" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SparrowService" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SparrowService" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../SparrowPresentation/SparrowMusicPresentation" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f3bd3aa4-5c21-4fc7-b283-3dfa564d4622" name="Default" comment="" />
+      <created>1463105542978</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1463105542978</updated>
+      <workItem from="1463105544076" duration="13000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="13000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
+    <editor active="false" />
+    <layout>
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="-1" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+</project>

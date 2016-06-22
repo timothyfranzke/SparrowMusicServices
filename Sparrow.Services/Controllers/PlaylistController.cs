@@ -14,6 +14,20 @@ namespace Sparrow.Services.Controllers
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class PlaylistController : ApiController
     {
+        private readonly Artist _artist;
+        private readonly Playlist _playlist;
+
+        public PlaylistController()
+        {
+            _artist = new Artist();
+            _playlist = new Playlist();
+        }
+        public PlaylistController(Artist artist, Playlist playlist)
+        {
+            _artist = artist;
+            _playlist = playlist;
+        }
+
         [HttpPost]
         [ActionName("Build")]
         public HttpResponseMessage BuildPlaylist()
@@ -30,12 +44,12 @@ namespace Sparrow.Services.Controllers
             {
                 if (page == null || playlistId == null)
                 {
-                    var playlistMetaData = Playlist.GetPlaylistMetaData();
+                    var playlistMetaData = _playlist.GetPlaylistMetaData();
                     return Request.CreateResponse(HttpStatusCode.OK, playlistMetaData);
                 }
                 else
                 {
-                    var playlist = API.Playlist.GetPlaylist((int) page, (int) playlistId);
+                    var playlist = _playlist.GetPlaylist((int)page, (int)playlistId);
                     var playlistModel = JsonConvert.DeserializeObject<List<PlaylistTrack>>(playlist);
                     return Request.CreateResponse(HttpStatusCode.OK, playlistModel);
                 }
@@ -52,7 +66,7 @@ namespace Sparrow.Services.Controllers
         {
             try
             {
-                return Request.CreateResponse(HttpStatusCode.OK, API.Playlist.SearchByName(name));
+                return Request.CreateResponse(HttpStatusCode.OK, _playlist.SearchByName(name));
             }
             catch (Exception)
             {
@@ -66,7 +80,7 @@ namespace Sparrow.Services.Controllers
         {
             try
             {
-                return Request.CreateResponse(HttpStatusCode.OK, Artist.GetFile("audio", artistId, albumId, trackId));
+                return Request.CreateResponse(HttpStatusCode.OK, _artist.GetFile("audio", artistId, albumId, trackId));
             }
             catch (Exception)
             {
@@ -80,7 +94,7 @@ namespace Sparrow.Services.Controllers
         {
             try
             {
-                return Request.CreateResponse(HttpStatusCode.OK, Artist.GetFile("image", artistId, albumId, trackId));
+                return Request.CreateResponse(HttpStatusCode.OK, _artist.GetFile("image", artistId, albumId, trackId));
             }
             catch (Exception)
             {
@@ -94,7 +108,25 @@ namespace Sparrow.Services.Controllers
         {
             try
             {
-                API.Artist.ModifyTrackPopularity(model);
+                _artist.ModifyTrackPopularity(model);
+                return Request.CreateResponse(HttpStatusCode.OK);
+            }
+            catch (Exception e)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest);
+            }
+        }
+
+        [HttpGet]
+        [ActionName("Generate")]
+        public HttpResponseMessage GeneratePlaylist(string id)
+        {
+            try
+            {
+                if (id == "Yy9Fe19RulARt2vIHuMR")
+                {
+                    _playlist.CreatePlaylist();
+                }
                 return Request.CreateResponse(HttpStatusCode.OK);
             }
             catch (Exception e)

@@ -14,6 +14,11 @@ namespace Sparrow.Services.Data
     
     public partial class ARTIST_BLOG
     {
+        public ARTIST_BLOG()
+        {
+            this.SPRW_USER = new HashSet<SPRW_USER>();
+        }
+    
         public int BLOG_ID { get; set; }
         public string BLOG { get; set; }
         public int ARTIST_ID { get; set; }
@@ -22,5 +27,6 @@ namespace Sparrow.Services.Data
         public System.DateTime LAST_MAINT_TIME { get; set; }
     
         public virtual SPRW_ARTIST SPRW_ARTIST { get; set; }
+        public virtual ICollection<SPRW_USER> SPRW_USER { get; set; }
     }
 }

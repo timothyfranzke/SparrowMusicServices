@@ -26,6 +26,7 @@ namespace Sparrow.Services.Models
         public MarketModel Market { get; set; }
         public DateTime ReleaseDate { get; set; }
         public string Setting { get; set; }
+        public Dictionary<string, string> Settings { get; set; } 
     }
 
     public class PlaylistCachePageModel : ICloneable

@@ -1,0 +1,132 @@
+DEBUG 2016-05-10 09:36:53,457 154 Sparrow.Services.Utils.Auth - Method:GenerateToken | salt:-300229564 | password:2a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755 | email:timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:36:53,496 154 Sparrow.Services.Utils.Auth - Method:GenerateToken | rawToken:-3002295642a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:36:53,496 154 Sparrow.Services.Utils.Auth - Method:GenerateToken | token:761d4a66d8af055077cd43ebfd4c803a2125bab0d1df7a2d33f30d7ec1b8ed94
+DEBUG 2016-05-10 09:36:53,712 131 Sparrow.Services.Utils.Auth - Method:GenerateToken | salt:-300229564 | password:2a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755 | email:timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:36:53,712 131 Sparrow.Services.Utils.Auth - Method:GenerateToken | rawToken:-3002295642a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:36:53,712 131 Sparrow.Services.Utils.Auth - Method:GenerateToken | token:761d4a66d8af055077cd43ebfd4c803a2125bab0d1df7a2d33f30d7ec1b8ed94
+DEBUG 2016-05-10 09:36:54,330 154 Sparrow.Services.Utils.Auth - Method:GenerateToken | salt:-300229564 | password:2a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755 | email:timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:36:54,331 154 Sparrow.Services.Utils.Auth - Method:GenerateToken | rawToken:-3002295642a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:36:54,331 154 Sparrow.Services.Utils.Auth - Method:GenerateToken | token:761d4a66d8af055077cd43ebfd4c803a2125bab0d1df7a2d33f30d7ec1b8ed94
+DEBUG 2016-05-10 09:37:27,651 131 Sparrow.Services.Utils.Auth - Method:GenerateToken | salt:-300229564 | password:2a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755 | email:timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:37:27,651 131 Sparrow.Services.Utils.Auth - Method:GenerateToken | rawToken:-3002295642a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:37:27,651 131 Sparrow.Services.Utils.Auth - Method:GenerateToken | token:761d4a66d8af055077cd43ebfd4c803a2125bab0d1df7a2d33f30d7ec1b8ed94
+DEBUG 2016-05-10 09:37:27,972 147 Sparrow.Services.Utils.Auth - Method:GenerateToken | salt:-300229564 | password:2a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755 | email:timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:37:27,972 147 Sparrow.Services.Utils.Auth - Method:GenerateToken | rawToken:-3002295642a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:37:27,973 147 Sparrow.Services.Utils.Auth - Method:GenerateToken | token:761d4a66d8af055077cd43ebfd4c803a2125bab0d1df7a2d33f30d7ec1b8ed94
+DEBUG 2016-05-10 09:37:31,069 140 Sparrow.Services.Utils.Auth - Method:GenerateToken | salt:-300229564 | password:2a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755 | email:timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:37:31,069 140 Sparrow.Services.Utils.Auth - Method:GenerateToken | rawToken:-3002295642a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:37:31,069 140 Sparrow.Services.Utils.Auth - Method:GenerateToken | token:761d4a66d8af055077cd43ebfd4c803a2125bab0d1df7a2d33f30d7ec1b8ed94
+DEBUG 2016-05-10 09:38:49,506 150 Sparrow.Services.Utils.Auth - Method:GenerateToken | salt:-300229564 | password:2a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755 | email:timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:38:49,506 150 Sparrow.Services.Utils.Auth - Method:GenerateToken | rawToken:-3002295642a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:38:49,506 150 Sparrow.Services.Utils.Auth - Method:GenerateToken | token:761d4a66d8af055077cd43ebfd4c803a2125bab0d1df7a2d33f30d7ec1b8ed94
+DEBUG 2016-05-10 09:38:49,842 143 Sparrow.Services.Utils.Auth - Method:GenerateToken | salt:-300229564 | password:2a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755 | email:timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:38:49,842 143 Sparrow.Services.Utils.Auth - Method:GenerateToken | rawToken:-3002295642a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:38:49,842 143 Sparrow.Services.Utils.Auth - Method:GenerateToken | token:761d4a66d8af055077cd43ebfd4c803a2125bab0d1df7a2d33f30d7ec1b8ed94
+DEBUG 2016-05-10 09:38:50,206 157 Sparrow.Services.Utils.Auth - Method:GenerateToken | salt:-300229564 | password:2a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755 | email:timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:38:50,206 157 Sparrow.Services.Utils.Auth - Method:GenerateToken | rawToken:-3002295642a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:38:50,206 157 Sparrow.Services.Utils.Auth - Method:GenerateToken | token:761d4a66d8af055077cd43ebfd4c803a2125bab0d1df7a2d33f30d7ec1b8ed94
+DEBUG 2016-05-10 09:42:54,507 171 Sparrow.Services.Utils.Auth - Method:GenerateToken | salt:-300229564 | password:2a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755 | email:timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:42:54,507 171 Sparrow.Services.Utils.Auth - Method:GenerateToken | rawToken:-3002295642a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:42:54,507 171 Sparrow.Services.Utils.Auth - Method:GenerateToken | token:761d4a66d8af055077cd43ebfd4c803a2125bab0d1df7a2d33f30d7ec1b8ed94
+DEBUG 2016-05-10 09:42:55,128 143 Sparrow.Services.Utils.Auth - Method:GenerateToken | salt:-300229564 | password:2a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755 | email:timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:42:55,128 143 Sparrow.Services.Utils.Auth - Method:GenerateToken | rawToken:-3002295642a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:42:55,128 143 Sparrow.Services.Utils.Auth - Method:GenerateToken | token:761d4a66d8af055077cd43ebfd4c803a2125bab0d1df7a2d33f30d7ec1b8ed94
+DEBUG 2016-05-10 09:43:19,262 160 Sparrow.Services.Utils.Auth - Method:GenerateToken | salt:-300229564 | password:2a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755 | email:timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:43:19,262 160 Sparrow.Services.Utils.Auth - Method:GenerateToken | rawToken:-3002295642a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:43:19,262 160 Sparrow.Services.Utils.Auth - Method:GenerateToken | token:761d4a66d8af055077cd43ebfd4c803a2125bab0d1df7a2d33f30d7ec1b8ed94
+DEBUG 2016-05-10 09:44:04,754 177 Sparrow.Services.Utils.Auth - Method:GenerateToken | salt:-300229564 | password:2a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755 | email:timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:44:04,764 177 Sparrow.Services.Utils.Auth - Method:GenerateToken | rawToken:-3002295642a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:44:04,765 177 Sparrow.Services.Utils.Auth - Method:GenerateToken | token:761d4a66d8af055077cd43ebfd4c803a2125bab0d1df7a2d33f30d7ec1b8ed94
+DEBUG 2016-05-10 09:44:05,135 174 Sparrow.Services.Utils.Auth - Method:GenerateToken | salt:-300229564 | password:2a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755 | email:timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:44:05,135 174 Sparrow.Services.Utils.Auth - Method:GenerateToken | rawToken:-3002295642a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:44:05,135 174 Sparrow.Services.Utils.Auth - Method:GenerateToken | token:761d4a66d8af055077cd43ebfd4c803a2125bab0d1df7a2d33f30d7ec1b8ed94
+DEBUG 2016-05-10 09:44:05,263 143 Sparrow.Services.Utils.Auth - Method:GenerateToken | salt:-300229564 | password:2a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755 | email:timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:44:05,263 143 Sparrow.Services.Utils.Auth - Method:GenerateToken | rawToken:-3002295642a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:44:05,263 143 Sparrow.Services.Utils.Auth - Method:GenerateToken | token:761d4a66d8af055077cd43ebfd4c803a2125bab0d1df7a2d33f30d7ec1b8ed94
+DEBUG 2016-05-10 09:44:46,115 164 Sparrow.Services.Utils.Auth - Method:GenerateToken | salt:-300229564 | password:2a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755 | email:timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:44:46,115 164 Sparrow.Services.Utils.Auth - Method:GenerateToken | rawToken:-3002295642a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:44:46,115 164 Sparrow.Services.Utils.Auth - Method:GenerateToken | token:761d4a66d8af055077cd43ebfd4c803a2125bab0d1df7a2d33f30d7ec1b8ed94
+DEBUG 2016-05-10 09:44:46,442 162 Sparrow.Services.Utils.Auth - Method:GenerateToken | salt:-300229564 | password:2a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755 | email:timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:44:46,442 162 Sparrow.Services.Utils.Auth - Method:GenerateToken | rawToken:-3002295642a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:44:46,442 162 Sparrow.Services.Utils.Auth - Method:GenerateToken | token:761d4a66d8af055077cd43ebfd4c803a2125bab0d1df7a2d33f30d7ec1b8ed94
+DEBUG 2016-05-10 09:44:46,849 160 Sparrow.Services.Utils.Auth - Method:GenerateToken | salt:-300229564 | password:2a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755 | email:timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:44:46,849 160 Sparrow.Services.Utils.Auth - Method:GenerateToken | rawToken:-3002295642a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:44:46,849 160 Sparrow.Services.Utils.Auth - Method:GenerateToken | token:761d4a66d8af055077cd43ebfd4c803a2125bab0d1df7a2d33f30d7ec1b8ed94
+DEBUG 2016-05-10 09:44:58,772 162 Sparrow.Services.Utils.Auth - Method:GenerateToken | salt:-300229564 | password:2a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755 | email:timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:44:58,772 162 Sparrow.Services.Utils.Auth - Method:GenerateToken | rawToken:-3002295642a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:44:58,772 162 Sparrow.Services.Utils.Auth - Method:GenerateToken | token:761d4a66d8af055077cd43ebfd4c803a2125bab0d1df7a2d33f30d7ec1b8ed94
+DEBUG 2016-05-10 09:44:59,122 179 Sparrow.Services.Utils.Auth - Method:GenerateToken | salt:-300229564 | password:2a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755 | email:timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:44:59,122 179 Sparrow.Services.Utils.Auth - Method:GenerateToken | rawToken:-3002295642a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:44:59,122 179 Sparrow.Services.Utils.Auth - Method:GenerateToken | token:761d4a66d8af055077cd43ebfd4c803a2125bab0d1df7a2d33f30d7ec1b8ed94
+DEBUG 2016-05-10 09:44:59,124 143 Sparrow.Services.Utils.Auth - Method:GenerateToken | salt:-300229564 | password:2a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755 | email:timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:44:59,124 143 Sparrow.Services.Utils.Auth - Method:GenerateToken | rawToken:-3002295642a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:44:59,124 143 Sparrow.Services.Utils.Auth - Method:GenerateToken | token:761d4a66d8af055077cd43ebfd4c803a2125bab0d1df7a2d33f30d7ec1b8ed94
+DEBUG 2016-05-10 09:45:15,438 164 Sparrow.Services.Utils.Auth - Method:GenerateToken | salt:-300229564 | password:2a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755 | email:timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:45:15,438 164 Sparrow.Services.Utils.Auth - Method:GenerateToken | rawToken:-3002295642a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:45:15,438 164 Sparrow.Services.Utils.Auth - Method:GenerateToken | token:761d4a66d8af055077cd43ebfd4c803a2125bab0d1df7a2d33f30d7ec1b8ed94
+DEBUG 2016-05-10 09:45:16,046 179 Sparrow.Services.Utils.Auth - Method:GenerateToken | salt:-300229564 | password:2a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755 | email:timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:45:16,046 179 Sparrow.Services.Utils.Auth - Method:GenerateToken | rawToken:-3002295642a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:45:16,046 179 Sparrow.Services.Utils.Auth - Method:GenerateToken | token:761d4a66d8af055077cd43ebfd4c803a2125bab0d1df7a2d33f30d7ec1b8ed94
+DEBUG 2016-05-10 09:45:16,110 169 Sparrow.Services.Utils.Auth - Method:GenerateToken | salt:-300229564 | password:2a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755 | email:timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:45:16,110 169 Sparrow.Services.Utils.Auth - Method:GenerateToken | rawToken:-3002295642a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:45:16,110 169 Sparrow.Services.Utils.Auth - Method:GenerateToken | token:761d4a66d8af055077cd43ebfd4c803a2125bab0d1df7a2d33f30d7ec1b8ed94
+DEBUG 2016-05-10 09:45:27,083 184 Sparrow.Services.Utils.Auth - Method:GenerateToken | salt:-300229564 | password:2a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755 | email:timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:45:27,083 184 Sparrow.Services.Utils.Auth - Method:GenerateToken | rawToken:-3002295642a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:45:27,083 184 Sparrow.Services.Utils.Auth - Method:GenerateToken | token:761d4a66d8af055077cd43ebfd4c803a2125bab0d1df7a2d33f30d7ec1b8ed94
+DEBUG 2016-05-10 09:45:27,471 168 Sparrow.Services.Utils.Auth - Method:GenerateToken | salt:-300229564 | password:2a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755 | email:timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:45:27,471 168 Sparrow.Services.Utils.Auth - Method:GenerateToken | rawToken:-3002295642a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:45:27,471 168 Sparrow.Services.Utils.Auth - Method:GenerateToken | token:761d4a66d8af055077cd43ebfd4c803a2125bab0d1df7a2d33f30d7ec1b8ed94
+DEBUG 2016-05-10 09:45:27,477 182 Sparrow.Services.Utils.Auth - Method:GenerateToken | salt:-300229564 | password:2a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755 | email:timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:45:27,477 182 Sparrow.Services.Utils.Auth - Method:GenerateToken | rawToken:-3002295642a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:45:27,477 182 Sparrow.Services.Utils.Auth - Method:GenerateToken | token:761d4a66d8af055077cd43ebfd4c803a2125bab0d1df7a2d33f30d7ec1b8ed94
+DEBUG 2016-05-10 09:45:37,279 181 Sparrow.Services.Utils.Auth - Method:GenerateToken | salt:-300229564 | password:2a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755 | email:timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:45:37,279 181 Sparrow.Services.Utils.Auth - Method:GenerateToken | rawToken:-3002295642a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:45:37,279 181 Sparrow.Services.Utils.Auth - Method:GenerateToken | token:761d4a66d8af055077cd43ebfd4c803a2125bab0d1df7a2d33f30d7ec1b8ed94
+DEBUG 2016-05-10 09:45:37,640 160 Sparrow.Services.Utils.Auth - Method:GenerateToken | salt:-300229564 | password:2a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755 | email:timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:45:37,640 160 Sparrow.Services.Utils.Auth - Method:GenerateToken | rawToken:-3002295642a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:45:37,640 160 Sparrow.Services.Utils.Auth - Method:GenerateToken | token:761d4a66d8af055077cd43ebfd4c803a2125bab0d1df7a2d33f30d7ec1b8ed94
+DEBUG 2016-05-10 09:45:37,642 176 Sparrow.Services.Utils.Auth - Method:GenerateToken | salt:-300229564 | password:2a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755 | email:timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:45:37,642 176 Sparrow.Services.Utils.Auth - Method:GenerateToken | rawToken:-3002295642a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:45:37,642 176 Sparrow.Services.Utils.Auth - Method:GenerateToken | token:761d4a66d8af055077cd43ebfd4c803a2125bab0d1df7a2d33f30d7ec1b8ed94
+DEBUG 2016-05-10 09:46:13,785 143 Sparrow.Services.Utils.Auth - Method:GenerateToken | salt:-300229564 | password:2a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755 | email:timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:46:13,786 143 Sparrow.Services.Utils.Auth - Method:GenerateToken | rawToken:-3002295642a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:46:13,786 143 Sparrow.Services.Utils.Auth - Method:GenerateToken | token:761d4a66d8af055077cd43ebfd4c803a2125bab0d1df7a2d33f30d7ec1b8ed94
+DEBUG 2016-05-10 09:46:14,183 175 Sparrow.Services.Utils.Auth - Method:GenerateToken | salt:-300229564 | password:2a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755 | email:timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:46:14,183 175 Sparrow.Services.Utils.Auth - Method:GenerateToken | rawToken:-3002295642a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:46:14,183 175 Sparrow.Services.Utils.Auth - Method:GenerateToken | token:761d4a66d8af055077cd43ebfd4c803a2125bab0d1df7a2d33f30d7ec1b8ed94
+DEBUG 2016-05-10 09:46:14,352 184 Sparrow.Services.Utils.Auth - Method:GenerateToken | salt:-300229564 | password:2a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755 | email:timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:46:14,352 184 Sparrow.Services.Utils.Auth - Method:GenerateToken | rawToken:-3002295642a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:46:14,352 184 Sparrow.Services.Utils.Auth - Method:GenerateToken | token:761d4a66d8af055077cd43ebfd4c803a2125bab0d1df7a2d33f30d7ec1b8ed94
+DEBUG 2016-05-10 09:46:58,840 175 Sparrow.Services.Utils.Auth - Method:GenerateToken | salt:-300229564 | password:2a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755 | email:timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:46:58,841 175 Sparrow.Services.Utils.Auth - Method:GenerateToken | rawToken:-3002295642a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:46:58,841 175 Sparrow.Services.Utils.Auth - Method:GenerateToken | token:761d4a66d8af055077cd43ebfd4c803a2125bab0d1df7a2d33f30d7ec1b8ed94
+DEBUG 2016-05-10 09:46:59,269 176 Sparrow.Services.Utils.Auth - Method:GenerateToken | salt:-300229564 | password:2a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755 | email:timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:46:59,269 176 Sparrow.Services.Utils.Auth - Method:GenerateToken | rawToken:-3002295642a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:46:59,269 176 Sparrow.Services.Utils.Auth - Method:GenerateToken | token:761d4a66d8af055077cd43ebfd4c803a2125bab0d1df7a2d33f30d7ec1b8ed94
+DEBUG 2016-05-10 09:46:59,447 175 Sparrow.Services.Utils.Auth - Method:GenerateToken | salt:-300229564 | password:2a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755 | email:timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:46:59,447 175 Sparrow.Services.Utils.Auth - Method:GenerateToken | rawToken:-3002295642a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:46:59,447 175 Sparrow.Services.Utils.Auth - Method:GenerateToken | token:761d4a66d8af055077cd43ebfd4c803a2125bab0d1df7a2d33f30d7ec1b8ed94
+DEBUG 2016-05-10 09:47:13,986 184 Sparrow.Services.Utils.Auth - Method:GenerateToken | salt:-300229564 | password:2a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755 | email:timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:47:13,986 184 Sparrow.Services.Utils.Auth - Method:GenerateToken | rawToken:-3002295642a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:47:13,986 184 Sparrow.Services.Utils.Auth - Method:GenerateToken | token:761d4a66d8af055077cd43ebfd4c803a2125bab0d1df7a2d33f30d7ec1b8ed94
+DEBUG 2016-05-10 09:47:14,287 175 Sparrow.Services.Utils.Auth - Method:GenerateToken | salt:-300229564 | password:2a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755 | email:timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:47:14,287 175 Sparrow.Services.Utils.Auth - Method:GenerateToken | rawToken:-3002295642a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:47:14,287 175 Sparrow.Services.Utils.Auth - Method:GenerateToken | token:761d4a66d8af055077cd43ebfd4c803a2125bab0d1df7a2d33f30d7ec1b8ed94
+DEBUG 2016-05-10 09:47:14,292 181 Sparrow.Services.Utils.Auth - Method:GenerateToken | salt:-300229564 | password:2a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755 | email:timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:47:14,292 181 Sparrow.Services.Utils.Auth - Method:GenerateToken | rawToken:-3002295642a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:47:14,292 181 Sparrow.Services.Utils.Auth - Method:GenerateToken | token:761d4a66d8af055077cd43ebfd4c803a2125bab0d1df7a2d33f30d7ec1b8ed94
+DEBUG 2016-05-10 09:47:32,598 185 Sparrow.Services.Utils.Auth - Method:GenerateToken | salt:-300229564 | password:2a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755 | email:timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:47:32,598 185 Sparrow.Services.Utils.Auth - Method:GenerateToken | rawToken:-3002295642a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:47:32,598 185 Sparrow.Services.Utils.Auth - Method:GenerateToken | token:761d4a66d8af055077cd43ebfd4c803a2125bab0d1df7a2d33f30d7ec1b8ed94
+DEBUG 2016-05-10 09:47:32,920 176 Sparrow.Services.Utils.Auth - Method:GenerateToken | salt:-300229564 | password:2a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755 | email:timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:47:32,920 176 Sparrow.Services.Utils.Auth - Method:GenerateToken | rawToken:-3002295642a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:47:32,921 176 Sparrow.Services.Utils.Auth - Method:GenerateToken | token:761d4a66d8af055077cd43ebfd4c803a2125bab0d1df7a2d33f30d7ec1b8ed94
+DEBUG 2016-05-10 09:47:33,085 182 Sparrow.Services.Utils.Auth - Method:GenerateToken | salt:-300229564 | password:2a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755 | email:timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:47:33,085 182 Sparrow.Services.Utils.Auth - Method:GenerateToken | rawToken:-3002295642a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:47:33,085 182 Sparrow.Services.Utils.Auth - Method:GenerateToken | token:761d4a66d8af055077cd43ebfd4c803a2125bab0d1df7a2d33f30d7ec1b8ed94
+DEBUG 2016-05-10 09:48:52,087 184 Sparrow.Services.Utils.Auth - Method:GenerateToken | salt:-300229564 | password:2a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755 | email:timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:48:52,087 184 Sparrow.Services.Utils.Auth - Method:GenerateToken | rawToken:-3002295642a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:48:52,087 184 Sparrow.Services.Utils.Auth - Method:GenerateToken | token:761d4a66d8af055077cd43ebfd4c803a2125bab0d1df7a2d33f30d7ec1b8ed94
+DEBUG 2016-05-10 09:50:03,885 167 Sparrow.Services.Utils.Auth - Method:GenerateToken | salt:-300229564 | password:2a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755 | email:timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:50:03,885 167 Sparrow.Services.Utils.Auth - Method:GenerateToken | rawToken:-3002295642a12f38d61502dad0362d70fe4d8d71443aa85d1b86e437e368c79dc5f76d755timothyfranzke@gmail.com
+DEBUG 2016-05-10 09:50:03,885 167 Sparrow.Services.Utils.Auth - Method:GenerateToken | token:761d4a66d8af055077cd43ebfd4c803a2125bab0d1df7a2d33f30d7ec1b8ed94

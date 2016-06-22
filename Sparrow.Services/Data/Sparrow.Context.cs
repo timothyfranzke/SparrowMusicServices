@@ -51,5 +51,6 @@ namespace Sparrow.Services.Data
         public virtual DbSet<sprw_playlist> sprw_playlist { get; set; }
         public virtual DbSet<SPRW_PLAYLIST_PAGES> SPRW_PLAYLIST_PAGES { get; set; }
         public virtual DbSet<SPRW_TRACK_QUEUE> SPRW_TRACK_QUEUE { get; set; }
+        public virtual DbSet<SPRW_ARTIST_SETTING> SPRW_ARTIST_SETTING { get; set; }
     }
 }

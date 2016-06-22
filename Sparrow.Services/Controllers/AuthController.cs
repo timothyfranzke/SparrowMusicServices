@@ -16,6 +16,14 @@ namespace Sparrow.Services.Controllers
     public class AuthController : ApiController
     {
         private static readonly ILog log = LogManager.GetLogger(typeof(UserController));
+        private readonly Security _security;
+        private readonly API.User _user;
+
+        public AuthController()
+        {
+            _security = new Security();
+            _user = new User();
+        }
 
         [HttpPost]
         [ActionName("AuthenticateUser")]
@@ -23,7 +31,7 @@ namespace Sparrow.Services.Controllers
         {
             try
             { 
-                var authModel = Security.AuthenticateUser(model);
+                var authModel = _security.AuthenticateUser(model);
                 if (authModel.Authenticated)
                     return Request.CreateResponse(HttpStatusCode.OK, authModel);
                 return Request.CreateResponse(HttpStatusCode.Unauthorized);
@@ -40,7 +48,7 @@ namespace Sparrow.Services.Controllers
             try
             {
                 log.Info("ForgotPassword : " + model.Email);
-                API.User.ResetPassword(model.Email);
+                _user.ResetPassword(model.Email);
                 return Request.CreateResponse(HttpStatusCode.OK,"");
             }
             catch (Exception e)
@@ -55,9 +63,9 @@ namespace Sparrow.Services.Controllers
         {
             try
             {
-                if (Security.Verify(model.Token, model.Email))
+                if (_security.Verify(model.Token, model.Email))
                 {
-                    return Request.CreateResponse(HttpStatusCode.OK, API.User.ResetPassword(model.Email, model.Password));
+                    return Request.CreateResponse(HttpStatusCode.OK, _user.ResetPassword(model.Email, model.Password));
                 }
                 return Request.CreateResponse(HttpStatusCode.Unauthorized);
             }

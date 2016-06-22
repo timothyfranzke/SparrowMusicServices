@@ -84,6 +84,7 @@ C:\Users\Timothy.Timothy-HP\Documents\Visual Studio 2015\Projects\Sparrow.Servic
 C:\Users\Timothy.Timothy-HP\Documents\Visual Studio 2015\Projects\Sparrow.Services\Sparrow.Services\bin\zh-Hant\System.Spatial.resources.dll
 C:\Users\Timothy.Timothy-HP\Documents\Visual Studio 2015\Projects\Sparrow.Services\Sparrow.Services\obj\Debug\Sparrow.Services.dll
 C:\Users\Timothy.Timothy-HP\Documents\Visual Studio 2015\Projects\Sparrow.Services\Sparrow.Services\obj\Debug\Sparrow.Services.pdb
+C:\data\Franzke\SparrowService\Sparrow.Services\bin\System.Spatial.xml
 C:\data\Franzke\SparrowService\Sparrow.Services\bin\roslyn\csc.exe
 C:\data\Franzke\SparrowService\Sparrow.Services\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
 C:\data\Franzke\SparrowService\Sparrow.Services\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
@@ -127,7 +128,6 @@ C:\data\Franzke\SparrowService\Sparrow.Services\bin\Microsoft.Data.Services.Clie
 C:\data\Franzke\SparrowService\Sparrow.Services\bin\Microsoft.WindowsAzure.Storage.pdb
 C:\data\Franzke\SparrowService\Sparrow.Services\bin\Microsoft.WindowsAzure.Storage.xml
 C:\data\Franzke\SparrowService\Sparrow.Services\bin\Newtonsoft.Json.xml
-C:\data\Franzke\SparrowService\Sparrow.Services\bin\System.Spatial.xml
 C:\data\Franzke\SparrowService\Sparrow.Services\bin\System.Web.Http.Cors.xml
 C:\data\Franzke\SparrowService\Sparrow.Services\bin\System.Net.Http.Formatting.xml
 C:\data\Franzke\SparrowService\Sparrow.Services\bin\System.Web.Http.xml
@@ -168,6 +168,6 @@ C:\data\Franzke\SparrowService\Sparrow.Services\bin\ko\System.Spatial.resources.
 C:\data\Franzke\SparrowService\Sparrow.Services\bin\ru\System.Spatial.resources.dll
 C:\data\Franzke\SparrowService\Sparrow.Services\bin\zh-Hans\System.Spatial.resources.dll
 C:\data\Franzke\SparrowService\Sparrow.Services\bin\zh-Hant\System.Spatial.resources.dll
-C:\data\Franzke\SparrowService\Sparrow.Services\obj\Debug\Sparrow.Services.csprojResolveAssemblyReference.cache
 C:\data\Franzke\SparrowService\Sparrow.Services\obj\Debug\Sparrow.Services.dll
 C:\data\Franzke\SparrowService\Sparrow.Services\obj\Debug\Sparrow.Services.pdb
+C:\data\Franzke\SparrowService\Sparrow.Services\obj\Debug\Sparrow.Services.csprojResolveAssemblyReference.cache

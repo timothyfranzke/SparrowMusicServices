@@ -13,14 +13,21 @@ namespace Sparrow.Services.Controllers
     public class UserController : ApiController
     {
         private static readonly ILog log = LogManager.GetLogger(typeof(UserController));
+        private readonly User _user;
+        private readonly Security _security;
 
+        public UserController()
+        {
+            _user = new User();
+            _security = new Security();
+        }
         [HttpPost]
         [ActionName("User")]
         public HttpResponseMessage CreateUser([FromBody]CreateUserModel model)
         {
             try
             {
-                var authModel = API.User.CreateUser(model);
+                var authModel = _user.CreateUser(model);
                 var response = Request.CreateResponse(HttpStatusCode.Created, authModel);
                 return response;
             }
@@ -36,9 +43,9 @@ namespace Sparrow.Services.Controllers
         {
             try
             {
-                if (Security.Verify(model.Token, model.Email))
+                if (_security.Verify(model.Token, model.Email))
                 {
-                    API.User.UpdateUser(model);
+                    _user.UpdateUser(model);
                     return Request.CreateResponse(HttpStatusCode.OK);
                 }
                 return Request.CreateResponse(HttpStatusCode.Forbidden);
@@ -55,9 +62,9 @@ namespace Sparrow.Services.Controllers
         {
             try
             {
-                if (Security.Verify(model.Token, model.Email))
+                if (_security.Verify(model.Token, model.Email))
                 {
-                    API.User.RemoveUser(model.UserId);
+                    _user.RemoveUser(model.UserId);
                     return Request.CreateResponse(HttpStatusCode.OK);
                 }
                 return Request.CreateResponse(HttpStatusCode.Forbidden);
@@ -74,7 +81,7 @@ namespace Sparrow.Services.Controllers
         {
             try
             {
-                return Request.CreateResponse(HttpStatusCode.OK, API.User.GetUsersArtists(email));
+                return Request.CreateResponse(HttpStatusCode.OK, _user.GetUsersArtists(email));
             }
             catch (Exception e)
             {
@@ -88,7 +95,7 @@ namespace Sparrow.Services.Controllers
         {
             try
             {
-                return Request.CreateResponse(HttpStatusCode.OK, API.User.GetEvents(email));
+                return Request.CreateResponse(HttpStatusCode.OK, _user.GetEvents(email));
             }
             catch (Exception e)
             {
@@ -102,7 +109,7 @@ namespace Sparrow.Services.Controllers
         {
             try
             {
-                return Request.CreateResponse(HttpStatusCode.OK, API.User.GetBullitens(email));
+                return Request.CreateResponse(HttpStatusCode.OK, _user.GetBullitens(email));
             }
             catch (Exception)
             {
@@ -115,9 +122,9 @@ namespace Sparrow.Services.Controllers
         {
             try
             {
-                if (Security.Verify(model.Token, model.UserEmail))
+                if (_security.Verify(model.Token, model.UserEmail))
                 {
-                    var artists = API.User.FollowArtist(model);
+                    var artists = _user.FollowArtist(model);
                     return Request.CreateResponse(HttpStatusCode.OK, artists);
                 }
                 return Request.CreateResponse(HttpStatusCode.Forbidden);
@@ -133,9 +140,9 @@ namespace Sparrow.Services.Controllers
         {
             try
             {
-                if (Security.Verify(model.Token, model.UserEmail))
+                if (_security.Verify(model.Token, model.UserEmail))
                 {
-                    var artists = API.User.UnFollowArtist(model);
+                    var artists = _user.UnFollowArtist(model);
                     return Request.CreateResponse(HttpStatusCode.OK, artists);
                 }
                 return Request.CreateResponse(HttpStatusCode.Forbidden);
@@ -152,9 +159,9 @@ namespace Sparrow.Services.Controllers
         {
             try
             {
-                if (Security.Verify(token, userEmail))
+                if (_security.Verify(token, userEmail))
                 {
-                    var filters = API.User.GetUserFilters(userEmail);
+                    var filters = _user.GetUserFilters(userEmail);
                     return Request.CreateResponse(HttpStatusCode.OK, filters);
                 }
                 return Request.CreateResponse(HttpStatusCode.Forbidden);
@@ -171,9 +178,9 @@ namespace Sparrow.Services.Controllers
         {
             try
             {
-                if (Security.Verify(model.Token, model.UserEmail))
+                if (_security.Verify(model.Token, model.UserEmail))
                 {
-                    var id = API.User.CreateUserFilter(model);
+                    var id = _user.CreateUserFilter(model);
                     return Request.CreateResponse(HttpStatusCode.OK, id);
                 }
                 return Request.CreateResponse(HttpStatusCode.Forbidden);
@@ -190,9 +197,9 @@ namespace Sparrow.Services.Controllers
         {
             try
             {
-                if (Security.Verify(token, userEmail))
+                if (_security.Verify(token, userEmail))
                 {
-                    API.User.RemoveUserFilter(filterId);
+                    _user.RemoveUserFilter(filterId);
                     return Request.CreateResponse(HttpStatusCode.OK);
                 }
                 return Request.CreateResponse(HttpStatusCode.Forbidden);

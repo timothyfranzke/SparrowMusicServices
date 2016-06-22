@@ -26,6 +26,7 @@ namespace Sparrow.Services.Data
             this.SPRW_POP_ARTIST = new HashSet<SPRW_POP_ARTIST>();
             this.SPRW_USER = new HashSet<SPRW_USER>();
             this.SPRW_ARTIST_SETTINGS = new HashSet<SPRW_ARTIST_SETTINGS>();
+            this.SPRW_ARTIST_SETTING = new HashSet<SPRW_ARTIST_SETTING>();
         }
     
         public int ARTIST_ID { get; set; }
@@ -48,5 +49,6 @@ namespace Sparrow.Services.Data
         public virtual ICollection<SPRW_USER> SPRW_USER { get; set; }
         public virtual SPRW_MARKET_LOCATIONS SPRW_MARKET_LOCATIONS { get; set; }
         public virtual ICollection<SPRW_ARTIST_SETTINGS> SPRW_ARTIST_SETTINGS { get; set; }
+        public virtual ICollection<SPRW_ARTIST_SETTING> SPRW_ARTIST_SETTING { get; set; }
     }
 }

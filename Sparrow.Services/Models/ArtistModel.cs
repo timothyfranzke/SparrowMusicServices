@@ -11,8 +11,9 @@ namespace Sparrow.Services.Models
         public List<EventModel> Events { get; set; }
         public string Bulliten { get; set; }
         public bool HasImage { get; set; }
+        public int? ImgId { get; set; }
         public List<GenreModel> Genres { get; set; }
-        public string Settings { get; set; }
+        public Dictionary<string,string> Settings { get; set; }
 
     }
 

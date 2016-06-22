@@ -10,13 +10,13 @@ using Sparrow.Services.Utils;
 
 namespace Sparrow.Services.API
 {
-    public static class User
+    public class User
     {
-        private static readonly ILog log = LogManager.GetLogger(typeof(User));
-        private static readonly UserRepository UserRepo = new UserRepository();
-        private static readonly ArtistRepository ArtistRepo = new ArtistRepository();
+        private readonly ILog log = LogManager.GetLogger(typeof(User));
+        private readonly UserRepository UserRepo = new UserRepository();
+        private readonly ArtistRepository ArtistRepo = new ArtistRepository();
 
-        public static AuthModel CreateUser(CreateUserModel model)
+        public AuthModel CreateUser(CreateUserModel model)
         {
             //var userInfo = _repository.GetUser(model.Email);
             var pwSalt = Auth.GenerateSalt();
@@ -35,17 +35,17 @@ namespace Sparrow.Services.API
             return authUser;
         }
 
-        public static void UpdateUser(ModifyUserModel model)
+        public void UpdateUser(ModifyUserModel model)
         {
             UserRepo.UpdateUser(model);
         }
 
-        public static void RemoveUser(int id)
+        public void RemoveUser(int id)
         {
             UserRepo.RemoveUser(id);
         }
 
-        public static void ResetPassword(string email)
+        public void ResetPassword(string email)
         {
             var pwSalt = Auth.GenerateSalt();
             var password = Membership.GeneratePassword(10, 3);
@@ -60,7 +60,7 @@ namespace Sparrow.Services.API
             GenerateEmail(email, token);
         }
 
-        public static string ResetPassword(string email, string password)
+        public string ResetPassword(string email, string password)
         {
             var pwSalt = Auth.GenerateSalt();
             var saltedPassword = pwSalt + password;
@@ -68,54 +68,54 @@ namespace Sparrow.Services.API
             UserRepo.ResetPassword(pwSalt, password, email, false);
             return Auth.GenerateToken(pwSalt, password, email);
         }
-        public static FollowedArtistModel GetUsersArtists(string email)
+        public FollowedArtistModel GetUsersArtists(string email)
         {
             return UserRepo.GetUsersArtists(email);
         }
 
-        public static FollowedArtistModel FollowArtist(CreateArtistAssociation model)
+        public FollowedArtistModel FollowArtist(CreateArtistAssociation model)
         {
             ArtistRepo.FollowArtist(model.UserEmail, model.ArtistId);
             return UserRepo.GetUsersArtists(model.UserEmail);
         }
 
-        public static FollowedArtistModel UnFollowArtist(CreateArtistAssociation model)
+        public FollowedArtistModel UnFollowArtist(CreateArtistAssociation model)
         {
             ArtistRepo.UnFollowArtist(model.UserEmail, model.ArtistId);
             return UserRepo.GetUsersArtists(model.UserEmail);
         }
 
-        public static IEnumerable<UserModel> SearchUsers(string email)
+        public IEnumerable<UserModel> SearchUsers(string email)
         {
             return UserRepo.SearchUsers(email);
         }
 
-        public static IEnumerable<EventModel> GetEvents(string email)
+        public IEnumerable<EventModel> GetEvents(string email)
         {
             return UserRepo.GetUserArtistEvents(email);
         }
 
-        public static IEnumerable<UserBulliten> GetBullitens(string email)
+        public IEnumerable<UserBulliten> GetBullitens(string email)
         {
             return UserRepo.GetUserArtistBullitens(email);
         }
 
-        public static IEnumerable<FilterModel> GetUserFilters(string email)
+        public IEnumerable<FilterModel> GetUserFilters(string email)
         {
             return UserRepo.GetFilters(email);
         }
 
-        public static int CreateUserFilter(CreateFilterModel model)
+        public int CreateUserFilter(CreateFilterModel model)
         {
             return UserRepo.CreateFilter(model);
         }
 
-        public static void RemoveUserFilter(int filterId)
+        public void RemoveUserFilter(int filterId)
         {
             UserRepo.RemoveFilter(filterId);
         }
 
-        private static void GenerateEmail(string email, string token)
+        private void GenerateEmail(string email, string token)
         {
             bool EmailIsSent = false;
 

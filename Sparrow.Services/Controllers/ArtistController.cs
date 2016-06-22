@@ -14,13 +14,27 @@ namespace Sparrow.Services.Controllers
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class ArtistController : ApiController
     {
+        private readonly Artist _artist;
+        private readonly Security _security;
+        public ArtistController()
+        {
+            _artist = new Artist();
+            _security = new Security();
+        }
+
+        public ArtistController(Artist artist)
+        {
+            _artist = artist;
+        }
+
         [HttpGet]
         [ActionName("Artist")]
         public HttpResponseMessage GetArtistById(int id)
         {
             try
             {
-                var artists = API.Artist.GetArtistById(id);
+
+                var artists = _artist.GetArtistById(id);
                 var response = Request.CreateResponse(HttpStatusCode.OK, artists);
                 return response;
                 
@@ -38,9 +52,9 @@ namespace Sparrow.Services.Controllers
         {
             try
             {
-                if (Security.Verify(token, email))
+                if ( _security.Verify(token, email))
                 {
-                    var artists = API.Artist.GetArtists(email);
+                    var artists = _artist.GetArtists(email);
                     var response = Request.CreateResponse(HttpStatusCode.OK, artists);
                     return response;
                 }
@@ -56,11 +70,11 @@ namespace Sparrow.Services.Controllers
         [ActionName("Artist")]
         public HttpResponseMessage CreateArtist([FromBody]CreateArtistModel model)
         {
-            if (Security.Verify(model.Token, model.UserEmail))
+            if ( _security.Verify(model.Token, model.UserEmail))
             {
                 try
                 {
-                    return Request.CreateResponse(HttpStatusCode.Created, API.Artist.CreateArtist(model));
+                    return Request.CreateResponse(HttpStatusCode.Created, _artist.CreateArtist(model));
                 }
                 catch (Exception e)
                 {
@@ -74,11 +88,11 @@ namespace Sparrow.Services.Controllers
         [ActionName("Artist")]
         public HttpResponseMessage UpdateArtist([FromBody]ModifyArtistModel model)
         {
-            if (Security.Verify(model.Token, model.UserEmail))
+            if ( _security.Verify(model.Token, model.UserEmail))
             {
                 try
                 {
-                    API.Artist.UpdateArtist(model);
+                    _artist.UpdateArtist(model);
                     return Request.CreateResponse(HttpStatusCode.Created);
                 }
                 catch (Exception e)
@@ -95,9 +109,9 @@ namespace Sparrow.Services.Controllers
         {
             try
             {
-                if (Security.Verify(model.Token, model.UserEmail, model.ArtistId))
+                if ( _security.Verify(model.Token, model.UserEmail, model.ArtistId))
                 {
-                    return Request.CreateResponse(HttpStatusCode.Created, API.Artist.CreateAlbum(model));
+                    return Request.CreateResponse(HttpStatusCode.Created, _artist.CreateAlbum(model));
                 }
                 return Request.CreateResponse(HttpStatusCode.Forbidden);
             }
@@ -113,9 +127,9 @@ namespace Sparrow.Services.Controllers
         {
             try
             {
-                if (Security.Verify(model.Token, model.UserEmail, model.ArtistId))
+                if ( _security.Verify(model.Token, model.UserEmail, model.ArtistId))
                 {
-                    API.Artist.UpdateAlbum(model);
+                    _artist.UpdateAlbum(model);
                     Request.CreateResponse(HttpStatusCode.OK);
                 }
                 return Request.CreateResponse(HttpStatusCode.Forbidden);
@@ -132,9 +146,9 @@ namespace Sparrow.Services.Controllers
         {
             try
             {
-                if (Security.Verify(token, userEmail, artistId))
+                if ( _security.Verify(token, userEmail, artistId))
                 {
-                    API.Artist.RemoveAlbum(albumId);
+                    _artist.RemoveAlbum(albumId);
                     Request.CreateResponse(HttpStatusCode.OK);
                 }
                 return Request.CreateResponse(HttpStatusCode.Forbidden);
@@ -152,10 +166,9 @@ namespace Sparrow.Services.Controllers
             try
             {
                 model.Image64 = model.Image64.Substring(model.Image64.IndexOf(",") + 1);
-                if (Security.Verify(model.Token, model.UserEmail, model.ArtistId))
+                if ( _security.Verify(model.Token, model.UserEmail, model.ArtistId))
                 {
-                    API.Artist.CreateAlbumImg(model);
-                    return Request.CreateResponse(HttpStatusCode.Created);
+                    return Request.CreateResponse(HttpStatusCode.Created, _artist.CreateAlbumImg(model));
                 }
                 return Request.CreateResponse(HttpStatusCode.Forbidden);
             }
@@ -169,11 +182,11 @@ namespace Sparrow.Services.Controllers
         [ActionName("Associate")]
         public HttpResponseMessage AssociateUserWithArtist([FromBody]CreateArtistAssociation model)
         {
-            if (Security.Verify(model.Token, model.UserEmail, model.ArtistId))
+            if ( _security.Verify(model.Token, model.UserEmail, model.ArtistId))
             {
                 try
                 {
-                    API.Artist.CreateAssociation(model);
+                    _artist.CreateAssociation(model);
                     return Request.CreateResponse(HttpStatusCode.Created);
                 }
                 catch (Exception e)
@@ -186,25 +199,46 @@ namespace Sparrow.Services.Controllers
         }
 
         [HttpPost]
-        public async Task<HttpResponseMessage> CreateTrack(int albumid, int artistId, string email, string token, string trackName)
+        [ActionName("Bulliten")]
+        public HttpResponseMessage CreateArtistBulliten([FromBody]BullitenModel model)
+        {
+            if ( _security.Verify(model.Token, model.UserEmail, model.ArtistId))
+            {
+                try
+                {
+                    _artist.CreateBulliten(model);
+                    return Request.CreateResponse(HttpStatusCode.Created);
+                }
+                catch (Exception e)
+                {
+                    return Request.CreateResponse(HttpStatusCode.BadRequest, e.StackTrace);
+                }
+            }
+            return Request.CreateResponse(HttpStatusCode.BadRequest);
+
+        }
+
+        [HttpPost]
+        public async Task<HttpResponseMessage> CreateTrack(int albumid, int artistId, string email, string token, string trackName, string fileType)
         {
             try
             {
-                if (API.Security.Verify(token, email, artistId))
+                if (_security.Verify(token, email, artistId))
                 {
                     var model = new CreateTrackModel
                     {
                         TrackName = trackName,
                         AlbumId = albumid,
                         ArtistId = artistId,
-                        UserEmail = email
+                        UserEmail = email,
+                        FileType = fileType
                     };
                     model.Track = await Request.Content.ReadAsByteArrayAsync();
-                    var id = API.Artist.CreateSingleTrack(model);
+                    var id = _artist.CreateSingleTrack(model);
                     return Request.CreateResponse(HttpStatusCode.Created, id);
                 }
                 
-                //API.Artist.CreateSingleTrack();
+                //_artist.CreateSingleTrack();
                 return Request.CreateResponse(HttpStatusCode.Forbidden);
             }
             catch (Exception e)
@@ -219,9 +253,9 @@ namespace Sparrow.Services.Controllers
         {
             try
             {
-                if (Security.Verify(token, userEmail, artistId))
+                if ( _security.Verify(token, userEmail, artistId))
                 {
-                    API.Artist.RemoveTrack(trackId);
+                    _artist.RemoveTrack(trackId);
                     return Request.CreateResponse(HttpStatusCode.OK);
                 }
                 return Request.CreateResponse(HttpStatusCode.BadRequest);
@@ -239,10 +273,9 @@ namespace Sparrow.Services.Controllers
             try
             {
                 model.Image64 = model.Image64.Substring(model.Image64.IndexOf(",", StringComparison.Ordinal) + 1);
-                if (Security.Verify(model.Token, model.UserEmail, model.ArtistId))
+                if ( _security.Verify(model.Token, model.UserEmail, model.ArtistId))
                 {
-                    API.Artist.CreateArtistImg(model);
-                    return Request.CreateResponse(HttpStatusCode.Created);
+                    return Request.CreateResponse(HttpStatusCode.Created, _artist.CreateArtistImg(model));
                 }
                 return Request.CreateResponse(HttpStatusCode.Forbidden);
             }
@@ -258,9 +291,9 @@ namespace Sparrow.Services.Controllers
         {
             try
             {
-                if (Security.Verify(model.Token, model.UserEmail, model.ArtistId))
+                if ( _security.Verify(model.Token, model.UserEmail, model.ArtistId))
                 {
-                    return Request.CreateResponse(HttpStatusCode.Created, API.Artist.CreateEvent(model));
+                    return Request.CreateResponse(HttpStatusCode.Created, _artist.CreateEvent(model));
                 }
                 return Request.CreateResponse(HttpStatusCode.Unauthorized);
             }
@@ -276,9 +309,9 @@ namespace Sparrow.Services.Controllers
         {
             try
             {
-                if (Security.Verify(token, userEmail, artistId))
+                if ( _security.Verify(token, userEmail, artistId))
                 {
-                    API.Artist.RemoveEvent(eventId);
+                    _artist.RemoveEvent(eventId);
                     return Request.CreateResponse(HttpStatusCode.OK);
                 }
                 return Request.CreateResponse(HttpStatusCode.BadRequest);
@@ -295,7 +328,7 @@ namespace Sparrow.Services.Controllers
         {
             try
             {
-                return Request.CreateResponse(HttpStatusCode.OK, API.Artist.GetCommonData());
+                return Request.CreateResponse(HttpStatusCode.OK, _artist.GetCommonData());
             }
             catch (Exception)
             {
@@ -309,7 +342,7 @@ namespace Sparrow.Services.Controllers
         {
             try
             {
-                return Request.CreateResponse(HttpStatusCode.OK, API.Artist.SearchMarkets(criteria, value));
+                return Request.CreateResponse(HttpStatusCode.OK, _artist.SearchMarkets(criteria, value));
             }
             catch (Exception)
             {
@@ -323,7 +356,7 @@ namespace Sparrow.Services.Controllers
         {
             try
             {
-                return Request.CreateResponse(HttpStatusCode.OK, API.Artist.GetGenres());
+                return Request.CreateResponse(HttpStatusCode.OK, _artist.GetGenres());
             }
             catch (Exception)
             {
@@ -337,9 +370,9 @@ namespace Sparrow.Services.Controllers
         {
             try
             {
-                if (Security.Verify(model.Token, model.UserEmail, model.ArtistId))
+                if ( _security.Verify(model.Token, model.UserEmail, model.ArtistId))
                 {
-                    API.Artist.AddGenre(model.ArtistId, model.GenreId);
+                    _artist.AddGenre(model.ArtistId, model.GenreId);
                     return Request.CreateResponse(HttpStatusCode.OK);
                 }
                 return Request.CreateResponse(HttpStatusCode.Unauthorized);
@@ -356,9 +389,9 @@ namespace Sparrow.Services.Controllers
         {
             try
             {
-                if (Security.Verify(token, userEmail, artistId))
+                if ( _security.Verify(token, userEmail, artistId))
                 {
-                    API.Artist.RemoveGenre(artistId, genreId);
+                    _artist.RemoveGenre(artistId, genreId);
                     return Request.CreateResponse(HttpStatusCode.OK);
                 }
                 return Request.CreateResponse(HttpStatusCode.Unauthorized);
@@ -376,9 +409,9 @@ namespace Sparrow.Services.Controllers
         {
             try
             {
-                if (Security.Verify(model.Token, model.UserEmail, model.ArtistId))
+                if ( _security.Verify(model.Token, model.UserEmail, model.ArtistId))
                 {
-                    API.Artist.CreateSetting(model);
+                    _artist.CreateSetting(model);
                     return Request.CreateResponse(HttpStatusCode.OK);
                 }
                 return Request.CreateResponse(HttpStatusCode.Unauthorized);
@@ -395,9 +428,9 @@ namespace Sparrow.Services.Controllers
         {
             try
             {
-                if (Security.Verify(model.Token, model.UserEmail, model.ArtistId))
+                if ( _security.Verify(model.Token, model.UserEmail, model.ArtistId))
                 {
-                    API.Artist.UpdateSetting(model);
+                    _artist.UpdateSetting(model);
                     return Request.CreateResponse(HttpStatusCode.OK);
                 }
                 return Request.CreateResponse(HttpStatusCode.Unauthorized);

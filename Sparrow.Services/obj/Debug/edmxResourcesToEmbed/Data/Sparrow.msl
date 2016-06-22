@@ -330,5 +330,22 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <AssociationSetMapping Name="ARTIST_BLOG_VIEWED" TypeName="sparrow_dbModel.ARTIST_BLOG_VIEWED" StoreEntitySet="ARTIST_BLOG_VIEWED">
+      <EndProperty Name="SPRW_USER">
+        <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+      </EndProperty>
+      <EndProperty Name="ARTIST_BLOG">
+        <ScalarProperty Name="BLOG_ID" ColumnName="BLOG_ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="SPRW_ARTIST_SETTING">
+      <EntityTypeMapping TypeName="sparrow_dbModel.SPRW_ARTIST_SETTING">
+        <MappingFragment StoreEntitySet="SPRW_ARTIST_SETTING">
+          <ScalarProperty Name="VALUE" ColumnName="VALUE" />
+          <ScalarProperty Name="KEY" ColumnName="KEY" />
+          <ScalarProperty Name="ARTIST_ID" ColumnName="ARTIST_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

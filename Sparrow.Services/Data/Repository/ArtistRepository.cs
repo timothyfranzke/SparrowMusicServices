@@ -9,6 +9,7 @@ namespace Sparrow.Services.Data.Repository
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger
         (System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         #region ArtistAssociation
         public void CreateArtistAssociation(string email, int artistId)
         {
@@ -349,16 +350,15 @@ namespace Sparrow.Services.Data.Repository
             return imageId;
         }
 
-        public void CreateArtistSetting(int artistId, string artistSetting)
+        public void CreateArtistSetting(int artistId, Dictionary<string, string> artistSettings)
         {
             using (var context = new sparrow_dbEntities())
             {
-                var setting = new SPRW_ARTIST_SETTINGS()
-                {
-                    ARTIST_ID = artistId,
-                    SETTING = artistSetting
-                };
-                context.SPRW_ARTIST_SETTINGS.Add(setting);
+
+                var settings =
+                    artistSettings.Select(
+                        i => new SPRW_ARTIST_SETTING {ARTIST_ID = artistId, KEY = i.Key, VALUE = i.Value});
+                context.SPRW_ARTIST_SETTING.AddRange(settings);
                 context.SaveChanges();
             }
         }
@@ -374,16 +374,19 @@ namespace Sparrow.Services.Data.Repository
                     ArtistId = artist.ARTIST_ID,
                     ArtistName = artist.NAME,
                     Description = artist.DESCRP,
-                    HasImage = artist.SPRW_ARTIST_IMG.Any()
+                    HasImage = artist.SPRW_ARTIST_IMG.Any(),
+                    ImgId = artist.SPRW_ARTIST_IMG.Any()?artist.SPRW_ARTIST_IMG.Max(i=>i.IMG_ID):-1
                 };
+                
                 var bulliten = context.ARTIST_BLOG.FirstOrDefault(i => i.ARTIST_ID == artistId);
                 if (bulliten != null && bulliten.LAST_MAINT_TIME.AddHours(24) > DateTime.Now)
                 {
                     artistModel.Bulliten = bulliten.BLOG;
                 }
-                var sprwArtistSettings = artist.SPRW_ARTIST_SETTINGS.FirstOrDefault();
+                /*var sprwArtistSettings = artist.SPRW_ARTIST_SETTINGS.FirstOrDefault();
                 if (sprwArtistSettings != null)
-                    artistModel.Settings = sprwArtistSettings.SETTING;
+                    artistModel.Settings = sprwArtistSettings.SETTING;*/
+                artistModel.Settings = artist.SPRW_ARTIST_SETTING.ToDictionary(i => i.KEY, i => i.VALUE);
                 var albums = new List<AlbumModel>();
                 foreach (var album in artist.SPRW_ALBUM)
                 {
@@ -393,7 +396,8 @@ namespace Sparrow.Services.Data.Repository
                         AlbumName = album.NAME,
                         Description = album.DESCRP,
                         ReleaseDate = album.RELEASE_DATE,
-                        HasImage = album.SPRW_ALBUM_IMG.Any()
+                        HasImage = album.SPRW_ALBUM_IMG.Any(),
+                        ImgId = album.SPRW_ALBUM_IMG.Any()?album.SPRW_ALBUM_IMG.Max(i=>i.IMG_ID):-1
                     };
                     var tracks = new List<TrackModel>();
                     foreach (var track in album.SPRW_TRACK)
@@ -443,9 +447,10 @@ namespace Sparrow.Services.Data.Repository
                     artistModel.Genres.Add(genreModel);
 
                 }
-                var artistSettings = artist.SPRW_ARTIST_SETTINGS.FirstOrDefault();
+                /*var artistSettings = artist.SPRW_ARTIST_SETTINGS.FirstOrDefault();
                 if (artistSettings != null)
-                    artistModel.Settings = artistSettings.SETTING;
+                    artistModel.Settings = artistSettings.SETTING;*/
+                artistModel.Settings = artist.SPRW_ARTIST_SETTING.ToDictionary(i => i.KEY, i => i.VALUE);
             }
             return artistModel;
         }
@@ -1044,6 +1049,34 @@ namespace Sparrow.Services.Data.Repository
             }
         }
 
+        public void AddTrackPopularitySelect(PopularityModel model)
+        {
+            var success = true;
+            try
+            {
+                var userId = GetUserId(model.UserEmail);
+                using (var context = new sparrow_dbEntities())
+                {
+                    var select = new SPRW_TRACK_POPULAR_SELECT()
+                    {
+                        DISLIKE_DATE = DateTime.Now,
+                        TRACK_ID = model.TrackId,
+                        USER_ID = userId
+                    };
+                    context.SPRW_TRACK_POPULAR_SELECT.Add(select);
+                    context.SaveChanges();
+                }
+                UpdatePopIndex(model.TrackId);
+
+            }
+            catch (Exception e)
+            {
+                log.Error("method : AddTrackPopularityPlayThrough | exception : " + e.Message);
+            }
+        }
+
+
+
         #endregion
 
         #region PlayList
@@ -1282,17 +1315,21 @@ namespace Sparrow.Services.Data.Repository
             using (var context = new sparrow_dbEntities())
             {
                 var track = context.SPRW_TRACK.FirstOrDefault(i => i.TRACK_ID == trackId);
-                var artist = context.SPRW_ARTIST.FirstOrDefault(i => i.SPRW_TRACK.Contains(track));
-                var diffDays = (DateTime.Now - track.LAST_MAINT_TIME).Days;
-                var popCount = (track.SPRW_TRACK_POPULAR_LIKE.Count * 2) + track.SPRW_TRACK_POPULAR_PLAY_THROUGH.Count +
-                               track.SPRW_TRACK_POPULAR_SELECT.Count;
-                popCount -= track.SPRW_TRACK_POPULAR_SKIPS.Count;
+                if (track != null)
+                {
+                    var artist = track.SPRW_ARTIST;
+                    var diffDays = (DateTime.Now - track.LAST_MAINT_TIME).Days;
+                    var popCount = (track.SPRW_TRACK_POPULAR_LIKE.Count * 2) + track.SPRW_TRACK_POPULAR_PLAY_THROUGH.Count +
+                                   track.SPRW_TRACK_POPULAR_SELECT.Count;
+                    popCount -= track.SPRW_TRACK_POPULAR_SKIPS.Count;
 
-                var popIndex = popCount / Math.Pow(diffDays, 1.8);
-                track.POP_INDEX = (decimal)popIndex;
+                    var popIndex = popCount / Math.Pow(diffDays, 1.8);
+                    track.POP_INDEX = (decimal)popIndex;
+                    var maxPopIndex = artist.SPRW_TRACK.Max(i => i.POP_INDEX);
+                    if (maxPopIndex != null)
+                        artist.POP_INDEX = (decimal)maxPopIndex;
+                }
 
-                popIndex = artist.SPRW_TRACK.Select(i => i.SPRW_TRACK_POPULAR_LIKE).Count();
-                
                 context.SaveChanges();
             }
         }

@@ -11,6 +11,7 @@ namespace Sparrow.Services.Models
         public DateTime ReleaseDate { get; set; }
         public List<TrackModel> Tracks { get; set; }
         public bool HasImage { get; set; }
+        public int? ImgId { get; set; }
     }
 
     public class CreateAlbumModel

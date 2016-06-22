@@ -4,11 +4,11 @@ using Sparrow.Services.Utils;
 
 namespace Sparrow.Services.API
 {
-    public static class Security
+    public class Security
     {
-        private static readonly UserRepository UserRepo = new UserRepository();
-        private static readonly ArtistRepository ArtistRepo = new ArtistRepository();
-        public static bool Verify(string email, int artistId)
+        private readonly UserRepository UserRepo = new UserRepository();
+        private readonly ArtistRepository ArtistRepo = new ArtistRepository();
+        public bool Verify(string email, int artistId)
         {
             var count = 0;
             var success = true;
@@ -28,14 +28,14 @@ namespace Sparrow.Services.API
             return success;
         }
 
-        public static bool Verify(string token, string email)
+        public bool Verify(string token, string email)
         {
             var user = UserRepo.GetUser(email);
             var success = token.Equals(Auth.GenerateToken((int)user.SALT, user.PASSWORD, user.EMAIL));
 
             return success;
         }
-        public static bool Verify(string token, string email, int artistId)
+        public bool Verify(string token, string email, int artistId)
         {
             var success = Verify(token, email);
             if (success)
@@ -46,7 +46,7 @@ namespace Sparrow.Services.API
             return success;
         }
 
-        public static AuthModel AuthenticateUser(AuthUserModel model)
+        public AuthModel AuthenticateUser(AuthUserModel model)
         {
             var authModel = new AuthModel
             {

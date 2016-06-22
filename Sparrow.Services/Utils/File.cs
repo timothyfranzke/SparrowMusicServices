@@ -192,16 +192,6 @@ namespace Sparrow.Services.Utils
             CloudStorageAccount storageAccount = CreateStorageAccountFromConnectionString(connection);
             CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
             CloudBlobContainer container = blobClient.GetContainerReference(containerName);
-
-            try
-            {
-                //await container.CreateIfNotExistsAsync();
-            }
-            catch (StorageException)
-            {
-                throw;
-            }
-
             CloudBlockBlob blockBlob = container.GetBlockBlobReference(path + fileNum + fileType);
 
             using (var stream = new MemoryStream(file, writable:false))
@@ -295,7 +285,7 @@ namespace Sparrow.Services.Utils
         /// </summary>
         /// <param name="storageConnectionString">The storage connection string</param>
         /// <returns>CloudStorageAccount object</returns>
-        private static CloudStorageAccount CreateStorageAccountFromConnectionString(string storageConnectionString)
+        public static CloudStorageAccount CreateStorageAccountFromConnectionString(string storageConnectionString)
         {
             CloudStorageAccount storageAccount;
             try

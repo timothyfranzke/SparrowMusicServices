@@ -16,7 +16,7 @@ namespace Sparrow.Services.Models
         public string Url { get; set; }
     }
 
-    public class CreateEventModel
+    public class CreateEventModel: IModel
     {
         public string UserEmail { get; set; }
         public string Token { get; set; }

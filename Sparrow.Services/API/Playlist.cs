@@ -1,19 +1,41 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Newtonsoft.Json;
 using Sparrow.Services.Data.Repository;
 using Sparrow.Services.Models;
 
 namespace Sparrow.Services.API
 {
-    public static class Playlist
+    public class Playlist
     {
-        private static readonly PlayerRepository Repository = new PlayerRepository();
+        private readonly PlayerRepository Repository = new PlayerRepository();
+        private readonly PlaylistRepository PlaylistRepo = new PlaylistRepository();
 
-        public static PlaylistPageModel GetPlaylistMetaData()
+        public Playlist()
+        {
+            
+        }
+
+        public Playlist(PlayerRepository playerRepo)
+        {
+            
+        }
+
+        public Playlist(PlaylistRepository playlistRepo)
+        {
+            
+        }
+
+        public Playlist(PlayerRepository playerRepo, PlaylistRepository playlistRepo)
+        {
+            
+        }
+
+        public PlaylistPageModel GetPlaylistMetaData()
         {
             return Repository.GetPlaylistMetaData();
         }
-        public static PlaylistCacheModel GetPlaylistPages()
+        public PlaylistCacheModel GetPlaylistPages()
         {
             var playlist = (List<PlaylistTrack>)Repository.GetPlaylistByHackerNews();
             var model = new PlaylistCacheModel
@@ -42,12 +64,12 @@ namespace Sparrow.Services.API
             return model;
         }
        
-        public static string GetPlaylist(int page, int playlistId)
+        public string GetPlaylist(int page, int playlistId)
         {
             return Repository.GetPlaylist(page, playlistId);
         }
 
-        public static SearchModel SearchByName(string name)
+        public SearchModel SearchByName(string name)
         {
             var model = new SearchModel();
 
@@ -56,6 +78,30 @@ namespace Sparrow.Services.API
             //model.Tracks = Repository.SearchTracks(name);
 
             return model;
+        }
+
+        public void CreatePlaylist()
+        {
+            int page = 1;
+            int playlistId = PlaylistRepo.CreatePlaylist();
+            var playlist = PlaylistRepo.GetPlaylistByHackerNews().ToList();
+            var playlistList = new List<PlaylistTrack>();
+
+            for (var i = 1; i <= playlist.Count(); i++)
+            {
+
+                if (i % 10 == 0 || i == playlist.Count())
+                {
+                    var playlistString = JsonConvert.SerializeObject(playlistList);
+                    PlaylistRepo.CreatePlaylistPage(playlistId, page, playlistString);
+                    playlistList.Clear();
+                    page++;
+                }
+                else
+                {
+                    playlistList.Add(playlist[i - 1]);
+                }
+            }
         }
 
     }

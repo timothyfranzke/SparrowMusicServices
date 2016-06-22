@@ -11,6 +11,7 @@
     <Property Name="LAST_MAINT_USER_ID" Type="Int32" Nullable="false" />
     <Property Name="LAST_MAINT_TIME" Type="DateTime" Nullable="false" Precision="3" />
     <NavigationProperty Name="SPRW_ARTIST" Relationship="Self.FK__ARTIST_BL__ARTIS__6383C8BA" FromRole="ARTIST_BLOG" ToRole="SPRW_ARTIST" />
+    <NavigationProperty Name="SPRW_USER" Relationship="sparrow_dbModel.ARTIST_BLOG_VIEWED" FromRole="ARTIST_BLOG" ToRole="SPRW_USER" />
   </EntityType>
   <EntityType Name="SPRW_ALBUM">
     <Key>
@@ -165,6 +166,8 @@
     <NavigationProperty Name="SPRW_TRACK_POPULAR_PLAYS" Relationship="sparrow_dbModel.FK__SPRW_TRAC__TRACK__531856C7" FromRole="SPRW_TRACK" ToRole="SPRW_TRACK_POPULAR_PLAYS" />
     <NavigationProperty Name="SPRW_TRACK_POPULAR_SELECT" Relationship="sparrow_dbModel.FK__SPRW_TRAC__TRACK__55F4C372" FromRole="SPRW_TRACK" ToRole="SPRW_TRACK_POPULAR_SELECT" />
     <NavigationProperty Name="SPRW_TRACK_POPULAR_SKIPS" Relationship="sparrow_dbModel.FK__SPRW_TRAC__TRACK__58D1301D" FromRole="SPRW_TRACK" ToRole="SPRW_TRACK_POPULAR_SKIPS" />
+    <Property Name="IS_REJECTED" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="SPRW_TRACK_QUEUE" Relationship="sparrow_dbModel.FK__SPRW_TRAC__TRACK__57A801BA" FromRole="SPRW_TRACK" ToRole="SPRW_TRACK_QUEUE" />
   </EntityType>
   <EntityType Name="SPRW_USER">
     <Key>
@@ -184,6 +187,7 @@
     <NavigationProperty Name="SPRW_ARTIST_MEMBER" Relationship="Self.FK__SPRW_ARTI__USER___5BE2A6F2" FromRole="SPRW_USER" ToRole="SPRW_ARTIST_MEMBER" />
     <NavigationProperty Name="SPRW_ARTIST" Relationship="Self.SPRW_USER_ARTIST_FOLLOW" FromRole="SPRW_USER" ToRole="SPRW_ARTIST" />
     <NavigationProperty Name="SPRW_USER_FILTER" Relationship="sparrow_dbModel.FK__SPRW_USER__USER___0880433F" FromRole="SPRW_USER" ToRole="SPRW_USER_FILTER" />
+    <NavigationProperty Name="ARTIST_BLOG" Relationship="sparrow_dbModel.ARTIST_BLOG_VIEWED" FromRole="SPRW_USER" ToRole="ARTIST_BLOG" />
   </EntityType>
   <Association Name="FK__ARTIST_BL__ARTIS__6383C8BA">
     <End Role="SPRW_ARTIST" Type="Self.SPRW_ARTIST" Multiplicity="1" />
@@ -445,6 +449,21 @@
       <End Role="SPRW_ARTIST" EntitySet="SPRW_ARTIST" />
       <End Role="SPRW_ARTIST_SETTINGS" EntitySet="SPRW_ARTIST_SETTINGS" />
     </AssociationSet>
+    <EntitySet Name="sprw_playlist" EntityType="sparrow_dbModel.sprw_playlist" />
+    <EntitySet Name="SPRW_PLAYLIST_PAGES" EntityType="sparrow_dbModel.SPRW_PLAYLIST_PAGES" />
+    <AssociationSet Name="FK__SPRW_PLAY__PLAYL__42ACE4D4" Association="sparrow_dbModel.FK__SPRW_PLAY__PLAYL__42ACE4D4">
+      <End Role="sprw_playlist" EntitySet="sprw_playlist" />
+      <End Role="SPRW_PLAYLIST_PAGES" EntitySet="SPRW_PLAYLIST_PAGES" />
+    </AssociationSet>
+    <EntitySet Name="SPRW_TRACK_QUEUE" EntityType="sparrow_dbModel.SPRW_TRACK_QUEUE" />
+    <AssociationSet Name="FK__SPRW_TRAC__TRACK__57A801BA" Association="sparrow_dbModel.FK__SPRW_TRAC__TRACK__57A801BA">
+      <End Role="SPRW_TRACK" EntitySet="SPRW_TRACK" />
+      <End Role="SPRW_TRACK_QUEUE" EntitySet="SPRW_TRACK_QUEUE" />
+    </AssociationSet>
+    <AssociationSet Name="ARTIST_BLOG_VIEWED" Association="sparrow_dbModel.ARTIST_BLOG_VIEWED">
+      <End Role="ARTIST_BLOG" EntitySet="ARTIST_BLOG" />
+      <End Role="SPRW_USER" EntitySet="SPRW_USER" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="SPRW_TRACK_POPULAR_DISLIKE">
     <Key>
@@ -694,5 +713,63 @@
         <PropertyRef Name="ARTIST_ID" />
       </Dependent>
     </ReferentialConstraint>
+  </Association>
+  <EntityType Name="sprw_playlist">
+    <Key>
+      <PropertyRef Name="PLAYLIST_ID" />
+    </Key>
+    <Property Name="PLAYLIST_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IS_ACTIVE" Type="Boolean" Nullable="false" />
+    <Property Name="CREATED" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="SPRW_PLAYLIST_PAGES" Relationship="sparrow_dbModel.FK__SPRW_PLAY__PLAYL__42ACE4D4" FromRole="sprw_playlist" ToRole="SPRW_PLAYLIST_PAGES" />
+  </EntityType>
+  <EntityType Name="SPRW_PLAYLIST_PAGES">
+    <Key>
+      <PropertyRef Name="PLAYLIST_ID" />
+      <PropertyRef Name="PAGE_NUM" />
+    </Key>
+    <Property Name="PLAYLIST_ID" Type="Int64" Nullable="false" />
+    <Property Name="PAGE_NUM" Type="Int32" Nullable="false" />
+    <Property Name="PLAYLIST" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="sprw_playlist" Relationship="sparrow_dbModel.FK__SPRW_PLAY__PLAYL__42ACE4D4" FromRole="SPRW_PLAYLIST_PAGES" ToRole="sprw_playlist" />
+  </EntityType>
+  <Association Name="FK__SPRW_PLAY__PLAYL__42ACE4D4">
+    <End Type="sparrow_dbModel.sprw_playlist" Role="sprw_playlist" Multiplicity="1" />
+    <End Type="sparrow_dbModel.SPRW_PLAYLIST_PAGES" Role="SPRW_PLAYLIST_PAGES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sprw_playlist">
+        <PropertyRef Name="PLAYLIST_ID" />
+      </Principal>
+      <Dependent Role="SPRW_PLAYLIST_PAGES">
+        <PropertyRef Name="PLAYLIST_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="SPRW_TRACK_QUEUE">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TRACK_PATH" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IS_REVIEWING" Type="Boolean" Nullable="false" />
+    <Property Name="DATE_QUEUED" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="TRACK_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="SPRW_TRACK" Relationship="sparrow_dbModel.FK__SPRW_TRAC__TRACK__57A801BA" FromRole="SPRW_TRACK_QUEUE" ToRole="SPRW_TRACK" />
+  </EntityType>
+  <Association Name="FK__SPRW_TRAC__TRACK__57A801BA">
+    <End Type="sparrow_dbModel.SPRW_TRACK" Role="SPRW_TRACK" Multiplicity="1" />
+    <End Type="sparrow_dbModel.SPRW_TRACK_QUEUE" Role="SPRW_TRACK_QUEUE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SPRW_TRACK">
+        <PropertyRef Name="TRACK_ID" />
+      </Principal>
+      <Dependent Role="SPRW_TRACK_QUEUE">
+        <PropertyRef Name="TRACK_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ARTIST_BLOG_VIEWED">
+    <End Type="sparrow_dbModel.ARTIST_BLOG" Role="ARTIST_BLOG" Multiplicity="*" />
+    <End Type="sparrow_dbModel.SPRW_USER" Role="SPRW_USER" Multiplicity="*" />
   </Association>
 </Schema>
